@@ -7,7 +7,7 @@
 }
 
 .rh-heroX__shell{
-  min-height: 90vh;
+  min-height: 92vh;
   display: grid;
   grid-template-columns: 1.15fr 1fr;  /* left bigger */
 }

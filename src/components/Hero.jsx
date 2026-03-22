@@ -7,14 +7,14 @@ export default function Hero() {
     () => [
       {
         id: 1,
-        img: "/assets/img/hero/slide5.png",
+        img: "/assets/img/hero/slide5.jpg",
         kicker: "ROYAL HORIZON HOLDING",
         title: "QUALITY CONSUMER GOODS",
         subtitle: "From trustworthy hands, built on long-term partnerships.",
       },
       {
         id: 2,
-        img: "/assets/img/hero/slide8.png",
+        img: "/assets/img/hero/slide8.pngh",
         kicker: "ROYAL HORIZON HOLDING",
         title: "QUALITY YOU CAN TRUST",
         subtitle:
@@ -22,7 +22,7 @@ export default function Hero() {
       },
       {
         id: 3,
-        img: "/assets/img/hero/slide9.png",
+        img: "/assets/img/hero/slide9.jpg",
         kicker: "ROYAL HORIZON HOLDING",
         title: "WHOLESALE & RETAIL EXCELLENCE",
         subtitle:

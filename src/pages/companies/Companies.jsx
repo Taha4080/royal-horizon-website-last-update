@@ -247,92 +247,135 @@ export default function Companies() {
       </section>
 
       {/* =========================
-          Fleet
-      ========================= */}
-      <section
-        ref={fleet.ref}
-        className={`fleet__container reveal ${fleet.visible ? "is-visible" : ""}`}
-      >
-        <header className="fleet__head">
-          <h2 className="fleet__title">Our Fleet – Driving Efficiency and Reach</h2>
+    Fleet Section
+========================= */}
+<section
+  ref={fleet.ref}
+  className={`fleet reveal ${fleet.visible ? "is-visible" : ""}`}
+>
+  <div className="fleet-container">
 
-          <div className="fleet__text">
-            <p>
-              Royal Horizon Holding operates a robust fleet of 72 vehicles,
-              including trailers, trucks, and pick-ups, strategically deployed
-              across the UAE to ensure seamless distribution and timely delivery.
-            </p>
-            <p>
-              Vehicles are equipped with freezer, chiller, and ambient
-              compartments, enabling us to maintain the highest standards of
-              quality and safety for all product categories — from frozen goods
-              to dry commodities.
-            </p>
-            <p>
-              Our modern and well-maintained fleet symbolizes reliability, speed,
-              and our unwavering commitment to serving customers with excellence
-              across every channel.
-            </p>
+    <div className="fleet-grid">
+
+      {/* Text */}
+      <div className="fleet-content">
+
+        <h2 className="fleet-title">
+          Our Fleet – Driving Efficiency and Reach
+        </h2>
+
+        <p>
+          Royal Horizon Holding operates a robust fleet of 72 vehicles,
+          including trailers, trucks, and pick-ups, strategically deployed
+          across the UAE to ensure seamless distribution and timely delivery.
+        </p>
+
+        <p>
+          Vehicles are equipped with freezer, chiller, and ambient
+          compartments, enabling us to maintain the highest standards of
+          quality and safety for all product categories.
+        </p>
+
+        <p>
+          Our modern fleet represents reliability, speed, and our
+          commitment to operational excellence across every channel.
+        </p>
+
+        <div className="fleet-stats">
+
+          <div className="fleet-stat">
+            <h3>72+</h3>
+            <span>Vehicles</span>
           </div>
-        </header>
 
-        <figure className="fleet__media">
-          <img src="/assets/img/about/fleet.jpg" alt="Royal Horizon fleet" loading="lazy" />
-        </figure>
-      </section>
-
-      {/* =========================
-          Storage & Processing
-      ========================= */}
-      <section
-        ref={storage.ref}
-        className={`sp reveal ${storage.visible ? "is-visible" : ""}`}
-      >
-        <div className="sp__container">
-          <header className="sp__head">
-            <h2 className="sp__title">
-              Our Storage & Processing – <br />
-              Scalable, Secure, and Strategically Equipped
-            </h2>
-
-            <div className="sp__text">
-              <p>
-                Royal Horizon Holding operates over 170,000 CBM of modern storage
-                facilities, including 13,000 CBM of temperature-controlled cold
-                storage, ensuring optimal preservation and handling of diverse FMCG
-                products.
-              </p>
-              <p>
-                We also operate a dedicated rice packing unit with a daily capacity
-                of 270 metric tons, enabling large-scale processing, packaging, and
-                timely distribution of high-quality rice varieties across our network.
-              </p>
-              <p>
-                To support future expansion, an additional 44,000 CBM of storage space
-                construction project is in pipeline.
-              </p>
-            </div>
-          </header>
-
-          <div className="sp__grid">
-            <div className="sp__card sp__card--wide">
-              <img src="/assets/img/storage/s1.jpg" alt="Storage facility" loading="lazy" />
-            </div>
-            <div className="sp__card">
-              <img src="/assets/img/storage/s2.jpg" alt="Processing area" loading="lazy" />
-            </div>
-            <div className="sp__card">
-              <img src="/assets/img/storage/s3.jpg" alt="Warehouse operations" loading="lazy" />
-            </div>
-            <div className="sp__card">
-              <img src="/assets/img/storage/s4.jpg" alt="Packing unit" loading="lazy" />
-            </div>
-            <div className="sp__card">
-              <img src="/assets/img/storage/s6.jpg" alt="Cold storage" loading="lazy" />
-            </div>
+          <div className="fleet-stat">
+            <h3>7</h3>
+            <span>Emirates Coverage</span>
           </div>
+
+          <div className="fleet-stat">
+            <h3>24/7</h3>
+            <span>Distribution</span>
+          </div>
+
         </div>
-      </section>
+
+      </div>
+
+      {/* Image */}
+      <div className="fleet-image">
+        <img
+          src="/assets/img/about/fleet.jpg"
+          alt="Royal Horizon fleet"
+          loading="lazy"
+        />
+      </div>
+
+    </div>
+
+  </div>
+</section>
+
+
+{/* =========================
+    Storage & Processing
+========================= */}
+<section
+  ref={storage.ref}
+  className={`storage reveal ${storage.visible ? "is-visible" : ""}`}
+>
+
+  <div className="storage-container">
+
+    <div className="storage-head">
+
+      <h2>
+        Our Storage & Processing – <br />
+        Scalable, Secure, and Strategically Equipped
+      </h2>
+
+      <p>
+        Royal Horizon Holding operates over 170,000 CBM of modern storage
+        facilities including 13,000 CBM of temperature-controlled cold storage,
+        ensuring optimal preservation and handling of diverse FMCG products.
+      </p>
+
+      <p>
+        We also operate a dedicated rice packing unit with a daily capacity
+        of 270 metric tons, enabling efficient large-scale processing and
+        distribution across the UAE.
+      </p>
+
+    </div>
+
+
+    <div className="storage-grid">
+
+      <div className="storage-big">
+        <img src="/assets/img/storage/s1.jpg" alt="Storage facility" />
+      </div>
+
+      <div className="storage-card">
+        <img src="/assets/img/storage/s2.jpg" alt="Processing area" />
+      </div>
+
+      <div className="storage-card">
+        <img src="/assets/img/storage/s3.jpg" alt="Warehouse operations" />
+      </div>
+
+      <div className="storage-card">
+        <img src="/assets/img/storage/s4.jpg" alt="Packing unit" />
+      </div>
+
+      <div className="storage-card">
+        <img src="/assets/img/storage/s6.jpg" alt="Cold storage" />
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
 
       {/* ===== TEAM ===== */}
       <section
