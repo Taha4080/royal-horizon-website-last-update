@@ -1,9 +1,11 @@
 import { Link } from "react-router-dom";
 import "./Company.css";
 import { useReveal } from "../../useReveal";
+import { useState } from "react";
 
 export default function Companies() {
   // ===== Links Data (Update URLs) =====
+  const [open, setOpen] = useState(null);
   const retailBranches = [
     { name: "RHFS, Ajman", url: "#" },
     { name: "RHFS, Al Ain", url: "#" },
@@ -43,167 +45,94 @@ export default function Companies() {
       {/* =========================
           Company Structure (NEW)
       ========================= */}
-      <section
-        ref={structure.ref}
-        className={`cs-container reveal ${structure.visible ? "is-visible" : ""}`}
-      >
-        <h3 className="cs-title">Company Structure</h3>
+<section
+  ref={structure.ref}
+  className={`cs-container reveal ${structure.visible ? "is-visible" : ""}`}
+>
+  <h3 className="cs-title">Company Structure</h3>
 
-        {/* Top Header */}
-        <div className="cs-top">
-          <div className="cs-holding">
-            <div className="cs-holdingTitle">Royal Horizon Holding LLC</div>
-            <div className="cs-holdingSub">Group Structure Overview</div>
-          </div>
+  <div className="cs-holding">
+    Royal Horizon Holding LLC
+  </div>
 
-          <div className="cs-level1">
-            <div className="cs-cat">
-              <div className="cs-catTitle">Retail</div>
-              <p className="cs-catSub">B to C</p>
-            </div>
+  <div className="cs-line"></div>
 
-            <div className="cs-cat">
-              <div className="cs-catTitle">Wholesale & Contracts</div>
-              <p className="cs-catSub">B to B</p>
-            </div>
+  <div className="cs-level">
 
-            <div className="cs-cat">
-              <div className="cs-catTitle">E-Commerce</div>
-              <p className="cs-catSub">Online</p>
-            </div>
-          </div>
-        </div>
+    {/* Retail */}
+ <div
+  className="cs-node"
+  onMouseEnter={() => open === null && setOpen(1)}
+  onMouseLeave={() => open === 1 && setOpen(null)}
+>
+  <div
+    className="cs-nodeTitle"
+    onClick={() => setOpen(open === 1 ? null : 1)}
+  >
+    Retail (B2C)
+  </div>
 
-        {/* Cards Grid */}
-        <div className="cs-grid">
-          {/* Retail */}
-          <div className="cs-col">
-            <div className="cs-colHead">
-              <h4 className="cs-colTitle">Royal Horizon FS, RAK</h4>
-            </div>
+  <div className={`cs-card ${open === 1 ? "open" : ""}`}>
+    <div className="cs-links">
+      {retailBranches.map(b => (
+        <a key={b.name} href={b.url} className="cs-link">
+          {b.name} <span>↗</span>
+        </a>
+      ))}
+    </div>
+  </div>
+</div>
 
-            <div className="cs-colBody">
-              <div className="cs-label">BRANCHES</div>
+    {/* Wholesale */}
+   <div
+  className="cs-node"
+  onMouseEnter={() => open === null && setOpen(2)}
+  onMouseLeave={() => open === 2 && setOpen(null)}
+>
+  <div
+    className="cs-nodeTitle"
+    onClick={() => setOpen(open === 2 ? null : 2)}
+  >
+    Wholesale & Contracts
+  </div>
 
-              <div className="cs-links">
-                {retailBranches.map((b) => (
-                  <a
-                    key={b.name}
-                    className="cs-link"
-                    href={b.url}
-                    target="_blank"
-                    rel="noreferrer"
-                  >
-                    {b.name}
-                    <span className="cs-linkArrow" aria-hidden="true">
-                      ↗
-                    </span>
-                  </a>
-                ))}
-              </div>
+  <div className={`cs-card ${open === 2 ? "open" : ""}`}>
+    <div className="cs-links">
+      {generalTrading.map(b => (
+        <a key={b.name} href={b.url} className="cs-link">
+          {b.name} <span>↗</span>
+        </a>
+      ))}
+    </div>
+  </div>
+</div>
 
-              <div className="cs-mt">
-                <div className="cs-label">SPECIAL LOCATIONS</div>
+    {/* E-commerce */}
+    <div
+  className="cs-node"
+  onMouseEnter={() => open === null && setOpen(3)}
+  onMouseLeave={() => open === 3 && setOpen(null)}
+>
+  <div
+    className="cs-nodeTitle"
+    onClick={() => setOpen(open === 3 ? null : 3)}
+  >
+    E-Commerce
+  </div>
 
-                <div className="cs-links">
-                  {retailSpecial.map((b) => (
-                    <a
-                      key={b.name}
-                      className="cs-link cs-link--special"
-                      href={b.url}
-                      target="_blank"
-                      rel="noreferrer"
-                    >
-                      {b.name}
-                      <span className="cs-linkArrow" aria-hidden="true">
-                        ↗
-                      </span>
-                    </a>
-                  ))}
-                </div>
-              </div>
-            </div>
-          </div>
+  <div className={`cs-card ${open === 3 ? "open" : ""}`}>
+    <div className="cs-links">
+      {ecommerce.map(b => (
+        <a key={b.name} href={b.url} className="cs-link">
+          {b.name} <span>↗</span>
+        </a>
+      ))}
+    </div>
+  </div>
+</div>
 
-          {/* Wholesale */}
-          <div className="cs-col">
-            <div className="cs-colHead">
-              <h4 className="cs-colTitle">Wholesale & Contracts</h4>
-            </div>
-
-            <div className="cs-colBody">
-              <div className="cs-label">RH General Trading</div>
-
-              <div className="cs-links">
-                {generalTrading.map((b) => (
-                  <a
-                    key={b.name}
-                    className="cs-link"
-                    href={b.url}
-                    target="_blank"
-                    rel="noreferrer"
-                  >
-                    {b.name}
-                    <span className="cs-linkArrow" aria-hidden="true">
-                      ↗
-                    </span>
-                  </a>
-                ))}
-              </div>
-
-              <div className="cs-mt">
-                <div className="cs-label">Overseas Foodstuff Trading</div>
-
-                <div className="cs-links">
-                  {overseas.map((b) => (
-                    <a
-                      key={b.name}
-                      className="cs-link"
-                      href={b.url}
-                      target="_blank"
-                      rel="noreferrer"
-                    >
-                      {b.name}
-                      <span className="cs-linkArrow" aria-hidden="true">
-                        ↗
-                      </span>
-                    </a>
-                  ))}
-                </div>
-              </div>
-            </div>
-          </div>
-
-          {/* E-Commerce */}
-          <div className="cs-col">
-            <div className="cs-colHead">
-              <h4 className="cs-colTitle">E-Commerce</h4>
-            </div>
-
-            <div className="cs-colBody">
-              <div className="cs-label">Online Platforms</div>
-
-              <div className="cs-links">
-                {ecommerce.map((b) => (
-                  <a
-                    key={b.name}
-                    className="cs-link"
-                    href={b.url}
-                    target="_blank"
-                    rel="noreferrer"
-                  >
-                    {b.name}
-                    <span className="cs-linkArrow" aria-hidden="true">
-                      ↗
-                    </span>
-                  </a>
-                ))}
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
+  </div>
+</section>
       {/* =========================
           Our Companies
       ========================= */}

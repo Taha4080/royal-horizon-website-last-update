@@ -1,73 +1,88 @@
-
-.emp-login{
-    min-height: 90vh;
-    /* max-width: 420px; */
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background: #f4f6f8;
-    padding: 40px 20px;
+.emp-login {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, #0d3983, #0dcaf0);
+  padding: 20px;
 }
 
 .emp-login__card {
-   margin-top: 20px ;
-    background: #fff;
-    width: 100%;
-    max-width: 420px;
-    padding: 30px;
-    border-radius: 18px;
-    box-shadow: 20px rgba(0, 0, 0, .08);
-}
-
-
-.emp-login__card img{
-    /* margin: 20px 50px; */
-    margin-bottom: 20px;
-    width: 100%;
-    background-color:#0D3983;
-    
-}
-.emp-login__card h2 {
+  background: #fff;
+  width: 100%;
+  max-width: 420px;
+  padding: 30px;
+  border-radius: 18px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.1);
   text-align: center;
-  margin-bottom: 24px;
-  font-weight: 900;
 }
 
- .emp-field {
-    margin-bottom: 18px;
- }
+.emp-login__card img {
+  width: 120px;
+  margin-bottom: 20px;
+}
 
- .emp-field label{
-    display: block;
-    margin-bottom: 6px;
-    font-weight: 700;
-    font-size: 14px;
- }
+/* Tabs */
+.emp-tabs {
+  display: flex;
+  margin-bottom: 20px;
+  background: #f1f1f1;
+  border-radius: 999px;
+  overflow: hidden;
+}
 
+.emp-tabs button {
+  flex: 1;
+  padding: 10px;
+  border: none;
+  cursor: pointer;
+  background: transparent;
+  font-weight: 700;
+  transition: 0.3s;
+}
 
- .emp-field input{
-    width: 100%;
-    padding: 10px 12px;
-    border-radius: 8px;
-    border: 1px solid rgba(0, 0, 0, 0.15);
- }
+.emp-tabs button.active {
+  background: #0dcaf0;
+  color: #fff;
+}
 
-  .emp-field input:focus {
-    outline: none;
-    border-color: #0dcaf0;
+.emp-login__card h2 {
+  margin-bottom: 20px;
+}
 
-  }
+.emp-field {
+  margin-bottom: 15px;
+  text-align: left;
+}
 
- .emp-btn{
-    width: 100%;
-    padding: 12px;
-    border-radius: 999px;
-    background: #0dcaf0;
-    border: none;
-    font-weight: 900;
-    cursor: pointer;
-    transition: .2s ease;
- }
+.emp-field label {
+  display: block;
+  margin-bottom: 5px;
+  font-weight: 600;
+}
+
+.emp-field input {
+  width: 100%;
+  padding: 10px;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+}
+
+.emp-field input:focus {
+  outline: none;
+  border-color: #0dcaf0;
+}
+
+.emp-btn {
+  width: 100%;
+  padding: 12px;
+  border-radius: 999px;
+  background: #0dcaf0;
+  border: none;
+  font-weight: bold;
+  cursor: pointer;
+  transition: 0.3s;
+}
 
 .emp-btn:hover {
   background: #08b6d4;

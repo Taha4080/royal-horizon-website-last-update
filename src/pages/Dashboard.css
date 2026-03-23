@@ -1,0 +1,59 @@
+.dashboard-section {
+  min-height: 100vh;
+  padding: 40px 20px;
+  background: #f4f6f8;
+  text-align: center;
+}
+
+.dashboard-section h1 {
+  margin-bottom: 10px;
+}
+
+.dashboard-section p {
+  margin-bottom: 30px;
+  color: #555;
+}
+
+/* Grid الأقسام */
+.departments-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 20px;
+}
+
+/* Card القسم */
+.department-card {
+  background: #fff;
+  padding: 20px;
+  border-radius: 15px;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.department-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 12px 30px rgba(0,0,0,0.15);
+}
+
+.department-card h2 {
+  margin-bottom: 15px;
+}
+
+/* قائمة ملفات PDF */
+.pdf-list button {
+  display: block;
+  width: 100%;
+  padding: 10px 12px;
+  margin-bottom: 8px;
+  border: none;
+  background: #0dcaf0;
+  color: #fff;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: 0.3s;
+  font-weight: 600;
+}
+
+.pdf-list button:hover {
+  background: #08b6d4;
+}
