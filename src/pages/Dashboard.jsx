@@ -6,7 +6,7 @@ const departments = [
     name: "IT",
     pdfs: [
       { title: "IT Backup Policy", url: "/assets/img/police/IT Backup Policy.pdf" },
-      { title: "IT Guidelines", url: "/pdfs/IT_Guidelines.pdf" }
+      { title: "IT Guidelines", url: "/assets/img/police/IT Backup Policy.pdf" }
     ]
   },
   {
