@@ -111,6 +111,7 @@ export default function About() {
   const org = useReveal({ threshold: 0.2, once: true });
   const direction = useReveal({ threshold: 0.2, once: true });
   const cta = useReveal({ threshold: 0.2, once: true });
+  const [downloaded, setDownloaded] = useState(false);
 
   return (
     <main className="about-page">
@@ -136,9 +137,9 @@ export default function About() {
             </div>
 
             {/* Right Image */}
-            <div className="about-hero__image">
+            {/* <div className="about-hero__image">
               <img src="/assets/img/about/about-us.png" alt="Royal Horizon" />
-            </div>
+            </div> */}
           </div>
         </div>
       </section>
@@ -161,12 +162,18 @@ export default function About() {
               services to achieve our customers’ satisfaction.
             </p>
             <a
-              href="./assets/profile/profie.pdf"
-              download
-              className="about-download-btn"
-            >
-              Download Company Profile ⬇
-            </a>
+  href="./assets/profile/profie.pdf"
+  download
+  className="about-download-btn"
+  onClick={() => {
+    setDownloaded(true);
+
+    // يرجع للوضع الطبيعي بعد 3 ثواني (اختياري)
+    setTimeout(() => setDownloaded(false), 3000);
+  }}
+>
+  {downloaded ? "Download Successful ✅" : "Download Company Profile ⬇"}
+</a>
           </div>
 
           <div className="about-right">
@@ -177,7 +184,7 @@ export default function About() {
                 onError={(e) => (e.currentTarget.style.display = "none")}
               />
               <div className="about-media__placeholder">
-                <img src="/assets/img/about/about-us.jpg" alt="about us" />
+                <img src="/assets/img/about/about-us.png" alt="about us" />
               </div>
             </div>
           </div>
