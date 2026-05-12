@@ -10,13 +10,11 @@ import {
 
 import "./StatsBar.css";
 
-/* ✅ تنسيق أرقام مثل 15,000 */
 function formatNumber(n) {
   return new Intl.NumberFormat("en-US").format(Math.round(n));
 }
 
-/* ✅ Hook: عداد من 0 إلى target (يعيد التشغيل كل ما startKey يتغير) */
-function useCountUp(target, startKey, duration = 1200) {
+function useCountUp(target, startKey, duration = 1400) {
   const [value, setValue] = useState(0);
 
   useEffect(() => {
@@ -30,7 +28,7 @@ function useCountUp(target, startKey, duration = 1200) {
 
     const tick = (now) => {
       const progress = Math.min((now - start) / duration, 1);
-      const eased = 1 - Math.pow(1 - progress, 3); // easeOutCubic
+      const eased = 1 - Math.pow(1 - progress, 4); // easeOutQuart
       setValue(to * eased);
       if (progress < 1) rafId = requestAnimationFrame(tick);
     };
@@ -43,12 +41,12 @@ function useCountUp(target, startKey, duration = 1200) {
 }
 
 function StatItem({ value, label, startKey, icon, visible, index }) {
-  const counted = useCountUp(value, startKey, 1300);
+  const counted = useCountUp(value, startKey, 1500);
 
   return (
     <div
       className={`stats-item ${visible ? "is-visible" : ""}`}
-      style={{ transitionDelay: `${index * 120}ms` }}
+      style={{ transitionDelay: `${index * 150}ms` }}
     >
       <div className="start-icon">{icon}</div>
       <div className="stats-value">{formatNumber(counted)}</div>
@@ -82,24 +80,22 @@ export default function StatsBar() {
       ([entry]) => {
         if (entry.isIntersecting) {
           setVisible(true);
-          setStartKey((k) => k + 1); // يعيد العد كل مرة
+          setStartKey((k) => k + 1);
         } else {
           setVisible(false);
         }
       },
-      { threshold: 0.35 }
+      { threshold: 0.3 }
     );
 
     io.observe(el);
     return () => io.disconnect();
   }, []);
 
-  // ✅ ضع فيديوك هنا (لو في public):
   const videoSrc = "/assets/img/hero/pannar2.mp4";
 
   return (
     <section ref={sectionRef} className="stats-wrap">
-      {/* Video Background */}
       <video
         className="stats-video"
         autoPlay
@@ -111,10 +107,8 @@ export default function StatsBar() {
         <source src={videoSrc} type="video/mp4" />
       </video>
 
-      {/* Overlay dark for readability */}
       <div className="stats-overlay" />
-
-      {/* Content */}
+      
       <div className="container stats-content">
         <div className="stats-grid">
           {stats.map((s, i) => (

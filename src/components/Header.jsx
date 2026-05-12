@@ -36,7 +36,7 @@ export default function Header() {
                   <Link to="/">
                     {/* ضع لوجو الشركة هنا */}
                     <img
-                      src="/assets/img/logo/logo.png"
+                      src="/assets/img/logo/RHH.png"
                       alt="Royal Horizon"
                       width="150px"
                     />
@@ -63,15 +63,14 @@ export default function Header() {
 
           
                        
-                        <li class="ul-submenu">
-                          {/* <a href="/companies">Companies</a> */}
-                          <NavLink to="/companies">
+                        <li className="ul-submenu">
+                          <NavLink to="/companies" >
                           Companies
                           </NavLink>
 
-                          <ul class="submenu">
+                          <ul className="submenu">
                             <li>
-                              <NavLink to="/companies">
+                              <NavLink to="/companies" end>
                                 Royal Horizon Holding 
                               </NavLink>
                             </li>
@@ -114,7 +113,7 @@ export default function Header() {
                       <li>
                         <NavLink to="/EmployeeLogin">
                         <FaUser className="login-icon" />
-                        Login</NavLink>
+                        <span className="login-text">Login</span></NavLink>
                       </li>
                     </ul>
                   </div>

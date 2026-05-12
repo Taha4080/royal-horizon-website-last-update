@@ -1,131 +1,208 @@
 /* =========================
-   STATS SECTION (VIDEO BG)
+   STATS SECTION - فخم جداً
 ========================= */
-.stats-wrap{
+.stats-wrap {
   position: relative;
   overflow: hidden;
-  padding: 120px 0;
-  min-height: 420px; /* ارتفاع مناسب */
+  padding: 140px 0;
+  min-height: 480px;
   display: flex;
   align-items: center;
+
+  /* تأثير الضباب الخفيف */
+  background: 
+    radial-gradient(ellipse at center, rgba(13,57,131,0.05) 0%, transparent 50%),
+    radial-gradient(ellipse at top, rgba(255,255,255,0.02) 0%, transparent 40%);
 }
 
-/* الفيديو يغطي كامل السكشن */
-.stats-video{
+/* الفيديو فخم */
+.stats-video {
   position: absolute;
   inset: 0;
   width: 100%;
   height: 100%;
-  object-fit: cover;  /* مهم */
+  object-fit: cover;
   z-index: 0;
+
+  /* فلتر خفيف للفخامة */
+  filter: brightness(0.85) contrast(1.1) saturate(1.15);
 }
 
-/* طبقة تغميق لقراءة النص */
-.stats-overlay{
+/* طبقة التغميق الفخمة */
+.stats-overlay {
   position: absolute;
   inset: 0;
-  background: rgba(0,0,0,0.55);
+  background: 
+    linear-gradient(135deg, rgba(5,15,32,0.75) 0%, rgba(15,30,58,0.85) 50%, rgba(5,26,58,0.9) 100%);
   z-index: 1;
 }
 
 /* محتوى فوق الفيديو */
-.stats-content{
+.stats-content {
   position: relative;
-  z-index: 2;
+  z-index: 3;
 }
 
 /* =========================
-   GRID
+   GRID فخم
 ========================= */
-.stats-grid{
+.stats-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 34px 18px;
+  gap: 45px 25px;
   align-items: center;
+
+  /* تأثير الضوء الخفيف */
+  position: relative;
+}
+
+.stats-grid::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: 
+    radial-gradient(circle at 20% 20%, rgba(255,255,255,0.08) 0%, transparent 50%),
+    radial-gradient(circle at 80% 80%, rgba(13,57,131,0.06) 0%, transparent 50%);
+  border-radius: 25px;
+  z-index: -1;
+  padding: 20px;
+  mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  mask-composite: exclude;
 }
 
 /* =========================
-   ITEM (NO CARD)
+   ITEM - زجاج فاخر
 ========================= */
-.stats-item{
+.stats-item {
   text-align: center;
+  background: rgba(255,255,255,0.08);
+  backdrop-filter: blur(25px);
+  border: 1px solid rgba(255,255,255,0.15);
+  border-radius: 28px;
+  padding: 45px 25px;
+  position: relative;
+  overflow: hidden;
 
-  /* بدون كارد */
-  background: transparent;
-  border: 0;
-  box-shadow: none;
-  padding: 0;
-
-  /* Animation دخول */
+  /* Animation دخول فخم */
   opacity: 0;
-  transform: translateY(18px);
-  transition: opacity .65s ease, transform .65s ease;
+  transform: translateY(30px) scale(0.95);
+  transition: all 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
 }
 
-.stats-item.is-visible{
+.stats-item::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+  transition: left 0.8s;
+}
+
+.stats-item.is-visible {
   opacity: 1;
-  transform: translateY(0);
+  transform: translateY(0) scale(1);
+}
+
+.stats-item.is-visible::before {
+  left: 100%;
 }
 
 /* =========================
-   ICON
+   ICON - دائرة فخمة
 ========================= */
-.start-icon{
-  width: 74px;
-  height: 74px;
+.start-icon {
+  width: 85px;
+  height: 85px;
   border-radius: 50%;
-  margin: 0 auto 14px;
-
+  margin: 0 auto 22px;
   display: flex;
   justify-content: center;
   align-items: center;
-
-  font-size: 34px;
+  font-size: 38px;
   color: #fff;
-
-  /* دائرة شفافة بسيطة */
-  background: rgba(255,255,255,0.12);
-  border: 1px solid rgba(255,255,255,0.22);
-
-  transition: transform .35s ease, background .35s ease;
+  background: 
+    linear-gradient(135deg, rgba(255,255,255,0.2), rgba(255,255,255,0.1));
+  backdrop-filter: blur(20px);
+  border: 2px solid rgba(255,255,255,0.25);
+  box-shadow: 
+    0 12px 30px rgba(0,0,0,0.3),
+    inset 0 1px 0 rgba(255,255,255,0.3);
+  transition: all 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  position: relative;
+  overflow: hidden;
 }
 
-/* حركة بسيطة عند hover */
-.stats-item:hover .start-icon{
-  transform: scale(1.07);
-  background: rgba(255,255,255,0.18);
+.start-icon::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at 30% 30%, rgba(255,255,255,0.3) 0%, transparent 50%);
+  opacity: 0;
+  transition: opacity 0.4s;
+}
+
+.stats-item:hover .start-icon {
+  transform: translateY(-8px) scale(1.08);
+  box-shadow: 
+    0 20px 45px rgba(13,57,131,0.4),
+    inset 0 1px 0 rgba(255,255,255,0.4);
+}
+
+.stats-item:hover .start-icon::before {
+  opacity: 1;
 }
 
 /* =========================
-   VALUE
+   VALUE - أرقام فخمة
 ========================= */
-.stats-value{
-  font-size: 40px;
+.stats-value {
+  font-size: 48px;
   font-weight: 900;
   line-height: 1.1;
   color: #fff;
-  text-shadow: 0 10px 25px rgba(0,0,0,0.35);
+  text-shadow: 
+    0 8px 25px rgba(0,0,0,0.6),
+    0 0 20px rgba(255,255,255,0.1);
+  letter-spacing: -0.02em;
+  margin-bottom: 12px;
+  position: relative;
+}
+
+.stats-value::after {
+  content: "+";
+  font-size: 0.6em;
+  opacity: 0.8;
+  margin-left: 4px;
 }
 
 /* =========================
-   LABEL
+   LABEL - نص فخم
 ========================= */
-.stats-label{
-  margin-top: 8px;
-  font-size: 14px;
-  font-weight: 600;
-  color: rgba(255,255,255,0.85);
+.stats-label {
+  font-size: 16px;
+  font-weight: 700;
+  color: rgba(255,255,255,0.92);
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+  position: relative;
 }
 
 /* =========================
-   RESPONSIVE
+   RESPONSIVE فخم
 ========================= */
-@media (max-width: 992px){
-  .stats-wrap{ padding: 90px 0; }
-  .stats-grid{ grid-template-columns: repeat(2, 1fr); }
+@media (max-width: 992px) {
+  .stats-wrap { padding: 100px 0; min-height: 420px; }
+  .stats-grid { grid-template-columns: repeat(2, 1fr); gap: 35px 20px; }
+  .stats-item { padding: 35px 20px; }
+  .stats-value { font-size: 42px; }
 }
 
-@media (max-width: 520px){
-  .stats-grid{ grid-template-columns: 1fr; }
-  .stats-value{ font-size: 36px; }
+@media (max-width: 520px) {
+  .stats-grid { grid-template-columns: 1fr; gap: 30px; }
+  .stats-wrap { padding: 80px 0; min-height: 380px; }
+  .stats-value { font-size: 38px; }
+  .stats-item { padding: 30px 18px; }
+  .start-icon { width: 70px; height: 70px; font-size: 32px; }
 }

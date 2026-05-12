@@ -1,191 +1,138 @@
-import { useEffect, useMemo, useState, useRef } from "react";
-import { Link } from "react-router-dom";
+import { useEffect, useState, useRef, useCallback } from "react";
+import HeroContant from "./HeroContant";
+import StatsBar from "./home/StatsBar";
+import Food from "./home/Food";
 import "./Hero.css";
 
 export default function Hero() {
-  const slides = useMemo(
-    () => [
-      {
-        id: 1,
-        img: "/assets/img/hero/slide5.jpg",
-        kicker: "ROYAL HORIZON HOLDING",
-        title: "QUALITY CONSUMER GOODS",
-        subtitle: "From trustworthy hands, built on long-term partnerships.",
-      },
-      {
-        id: 2,
-        img: "/assets/img/hero/slide8.pngh",
-        kicker: "ROYAL HORIZON HOLDING",
-        title: "QUALITY YOU CAN TRUST",
-        subtitle:
-          "Reliable supply, consistent standards, and customer-first service.",
-      },
-      {
-        id: 3,
-        img: "/assets/img/hero/slide9.jpg",
-        kicker: "ROYAL HORIZON HOLDING",
-        title: "WHOLESALE & RETAIL EXCELLENCE",
-        subtitle:
-          "Delivering value across FMCG and retail operations in the UAE.",
-      },
-    ],
-    [],
-  );
-
-  // ✅ المرحلة الأولى: عرض الفيديو
-  const [showVideo, setShowVideo] = useState(true);
-
-  // ✅ السلايدر يبدأ بعد الفيديو
   const [active, setActive] = useState(0);
+  const sliderRef = useRef(null);
 
-  // auto-play للصور (يشتغل فقط بعد انتهاء الفيديو)
+  const slides = [0, 1, 2, 3];
+
+  // 🔥 DETECT SCROLL POSITION (يعمل 100%)
   useEffect(() => {
-    if (showVideo) return;
-    const t = setInterval(
-      () => setActive((i) => (i + 1) % slides.length),
-      6000,
-    );
-    return () => clearInterval(t);
-  }, [showVideo, slides.length]);
+    const handleScroll = () => {
+      const slider = sliderRef.current;
+      if (!slider) return;
 
-  const next = () => setActive((i) => (i + 1) % slides.length);
-  const prev = () => setActive((i) => (i - 1 + slides.length) % slides.length);
+      const rect = slider.getBoundingClientRect();
+      const scrollTop =
+        window.pageYOffset || document.documentElement.scrollTop;
 
-  const slide = slides[active];
-  const videoRef = useRef(null);
+      // حساب الـ index بناءً على موقع السكرول
+      const slideHeight = window.innerHeight;
+      const slideIndex = Math.round(scrollTop / slideHeight);
 
-  const skipVideo = () => {
-    // وقف الفيديو
-    if (videoRef.current) {
-      videoRef.current.pause();
-      videoRef.current.currentTime = 0;
-    }
-    // أظهر السلايدر
-    setShowVideo(false);
+      // التأكد من أن الـ index ضمن النطاق
+      const clampedIndex = Math.max(0, Math.min(slideIndex, slides.length - 1));
+
+      setActive(clampedIndex);
+    };
+
+    // تشغيل فوري للكشف عن الموقع الحالي
+    handleScroll();
+
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
+  // 🔥 DOT CLICK - قفز لسلايد معين
+  const goToSlide = (index) => {
+    const targetPosition = index * window.innerHeight;
+    window.scrollTo({
+      top: targetPosition,
+      behavior: "smooth",
+    });
   };
-  const showwVideo = () => {
-    if (videoRef.current) {
-      videoRef.current.autoPlay();
-      videoRef.current.currentTime = 1;
-    }
-    setShowVideo(true);
-  };
+  const [isInHeroSection, setIsInHeroSection] = useState(true); // 🔥 الجديد
 
+  // 🔥 كشف ما إذا كنا في سكشن الهيرو
+  useEffect(() => {
+    const handleScroll = () => {
+      const slider = sliderRef.current;
+      if (!slider) return;
+
+      const rect = slider.getBoundingClientRect();
+      const isVisible = rect.top < window.innerHeight && rect.bottom > 0;
+
+      setIsInHeroSection(isVisible);
+
+      // حساب active slide
+      const scrollTop = window.pageYOffset;
+      const slideHeight = window.innerHeight;
+      const slideIndex = Math.round(scrollTop / slideHeight);
+      const clampedIndex = Math.max(0, Math.min(slideIndex, 3));
+
+      setActive(clampedIndex);
+    };
+
+    handleScroll(); // تشغيل فوري
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
   return (
-    <section className="rh-heroX">
-      <div
-        className={`rh-heroX__shell ${showVideo ? "rh-heroX__shell--video" : ""}`}
-      >
-        {/* LEFT */}
-        <div
-          className={`rh-heroX__left ${showVideo ? "rh-heroX__left--video" : ""}`}
-        >
-          <div className="rh-heroX__imgWrap">
-            {showVideo ? (
-              <video
-                ref={videoRef}
-                className="rh-heroX__video"
-                src="/assets/img/hero/panar-video.mp4"
-                autoPlay
-                muted
-                playsInline
-                preload="auto"
-                onEnded={() => setShowVideo(false)}
-              />
-            ) : (
-              <img
-                className="rh-heroX__img"
-                src={slide.img}
-                alt={slide.title}
-              />
-            )}
-
-            <div className="rh-heroX__imgOverlay" />
-            <div className="rh-heroX__imgVignette" />
-
-            {!showVideo && (
-              <>
-                <button
-                  className="rh-heroX__arrow rh-heroX__arrow--left"
-                  onClick={prev}
-                  aria-label="Previous slide"
-                >
-                  ‹
-                </button>
-                <button
-                  className="rh-heroX__arrow rh-heroX__arrow--right"
-                  onClick={next}
-                  aria-label="Next slide"
-                >
-                  ›
-                </button>
-              </>
-            )}
-          </div>
-          {showVideo && (
-            <button
-              type="button"
-              className="rh-heroX__skip"
-              onClick={skipVideo}
-              aria-label="Skip video"
-            >
-              Skip Video
-            </button>
-          )}
+    <section className="main-slider" ref={sliderRef}>
+      {/* 🔥 الـ 4 سلايدات كـ divs منفصلة (هذا السر!) */}
+      <div className="slide-wrapper">
+        {/* SLIDE 1 */}
+        <div className={`slide ${active === 0 ? "active" : ""}`}>
+          <HeroContant />
         </div>
 
-        {/* RIGHT (يظهر فقط مع الصور) */}
-        {!showVideo && (
-          <div className="rh-heroX__right">
-            <div className="rh-heroX__divider" />
+        {/* SLIDE 2 */}
+        <div className={`slide ${active === 1 ? "active" : ""}`}>
+          <StatsBar />
+        </div>
 
-            <div className="rh-heroX__content">
-              <div key={slide.id} className="rh-heroX__card rh-anim">
-                <div className="rh-heroX__kicker">{slide.kicker}</div>
-                <h1 className="rh-heroX__title">{slide.title}</h1>
-                <p className="rh-heroX__subtitle">{slide.subtitle}</p>
+        {/* SLIDE 3 */}
+        <div className={`slide ${active === 2 ? "active" : ""}`}>
+          <Food />
+        </div>
 
-                <div className="rh-heroX__actions">
-                  <Link to="/companies" className="rh-heroX__btn">
-                    Explore Companies
-                  </Link>
-                  <Link
-                    to="/about"
-                    className="rh-heroX__btn rh-heroX__btn--ghost"
-                  >
-                    About Us
-                  </Link>
-                  
-                    <button
-                      type="button"
-                      className="rh-heroX__btn rh-heroX__btn--ghost"
-                      onClick={showwVideo}
-                      aria-label="Show video"
-                    >
-                      Show Video
-                    </button>
-                  
-                </div>
-
-                <div className="rh-heroX__dots">
-                  {slides.map((s, idx) => (
-                    <button
-                      key={s.id}
-                      className={
-                        idx === active ? "rh-dot rh-dot--active" : "rh-dot"
-                      }
-                      onClick={() => setActive(idx)}
-                      aria-label={`Go to slide ${idx + 1}`}
-                    />
-                  ))}
-                </div>
-              </div>
-
-              <div className="rh-heroX__glow" />
-            </div>
+        {/* SLIDE 4 */}
+        <div className={`slide ${active === 3 ? "active" : ""}`}>
+          <div className="about-slide">
+            <video
+              src="./assets/img/hero/0506.mp4"
+              muted
+              autoPlay
+              loop
+              playsInline
+              className="hero-video"
+            />
           </div>
-        )}
+        </div>
+      <div className={`slider-dots ${isInHeroSection ? 'visible' : 'hidden'}`}>
+          {slides.map((_, i) => (
+            <span
+              key={i}
+              className={`dot ${active === i ? "active" : ""}`}
+              onClick={() => goToSlide(i)}
+            />
+          ))}
+        </div>
       </div>
+
+      {/* 🔥 DOTS NAVIGATION */}
+      <div className="slider-dots">
+        {slides.map((_, i) => (
+          <span
+            key={i}
+            className={`dot ${active === i ? "active" : ""}`}
+            onClick={() => goToSlide(i)}
+            title={`Go to Slide ${i + 1}`}
+          />
+        ))}
+      </div>
+
+      {/* 🔥 SCROLL PROGRESS - نفس سلوك النقاط */}
+<div className={`scroll-progress ${isInHeroSection ? 'visible' : 'hidden'}`}>
+  <div
+    className="progress-bar"
+    style={{ height: `${((active + 1) / slides.length) * 100}%` }}
+  />
+</div>
     </section>
   );
 }

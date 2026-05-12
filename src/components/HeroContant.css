@@ -1,0 +1,557 @@
+/* ===============================
+HERO BACKGROUND - صورة غامقة فخمة
+================================*/
+.rh-hero {
+  padding: 80px 20px;
+  min-height: 100vh;
+  position: relative;
+  overflow: hidden;
+  /* الصورة الرئيسية مع تدرج غامق */
+  background:
+    linear-gradient(135deg, rgba(5, 15, 32, 0.377) 50%, rgba(15, 30, 58, 0.486) 0%, rgba(5,26,58,0.95) 100%),
+    url("/assets/img/about/fleet2.jpg");
+  background-size: cover, cover;
+  background-position: center, center;
+  background-blend-mode: multiply;
+  background-attachment: fixed;
+}
+
+/* تأثير النجوم المتحركة - أخف */
+.rh-hero::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image:
+    radial-gradient(1.5px 1.5px at 20px 30px, rgba(255,255,255,0.6), transparent),
+    radial-gradient(1.5px 1.5px at 40px 70px, rgba(255,255,255,0.5), transparent),
+    radial-gradient(1px 1px at 90px 40px, rgba(255,255,255,0.7), transparent),
+    radial-gradient(1px 1px at 130px 80px, rgba(255,255,255,0.4), transparent);
+  background-repeat: repeat;
+  background-size: 200px 100px;
+  animation: sparkle 20s linear infinite;
+  z-index: 0;
+}
+
+@keyframes sparkle {
+  0% { transform: translateX(0) translateY(0) rotate(0deg); }
+  100% { transform: translateX(-200px) translateY(-100px) rotate(360deg); }
+}
+
+/* تأثير الضوء المتحرك - أخف */
+.rh-hero::after {
+  content: "";
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background:
+    radial-gradient(circle at 30% 20%, rgba(255,255,255,0.06) 0%, transparent 50%),
+    radial-gradient(circle at 80% 80%, rgba(120,119,198,0.06) 0%, transparent 50%);
+  animation: shine 15s ease-in-out infinite;
+  z-index: 0;
+}
+
+@keyframes shine {
+  0%, 100% { transform: translateX(-20%) translateY(-20%) rotate(0deg); }
+  50% { transform: translateX(20%) translateY(20%) rotate(180deg); }
+}
+
+/* ===============================
+MAIN CONTAINER - زجاج فاخر بسيط
+================================*/
+.rh-container {
+  max-width: 1100px;
+  width: 100%;
+  max-height: 85vh;
+  margin: auto;
+  position: relative;
+  z-index: 1;
+  border-radius: 30px;
+  padding: 50px;
+  transform: translateY(150px);
+}
+
+.rh-comp-layout {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  background: rgba(0, 0, 0, 0.084);
+  backdrop-filter: blur(3px);
+}
+
+.rh-main-brand-section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 60px;
+}
+
+.rh-hero-main-logo {
+  transform: translateY(-30px);
+}
+
+/* ===============================
+MAIN LOGO - فخم جداً
+================================*/
+.rh-hero-main-logo {
+  width: 100%;
+  max-width: 750px;
+  max-height: 180px;
+  object-fit: contain;
+  filter: drop-shadow(0 20px 40px rgba(13, 57, 131, 0.4));
+  border-radius: 25px;
+  /* border: 2px solid rgba(255,255,255,0.3); */
+  background: rgba(255,255,255,0.1);
+  backdrop-filter: blur(20px);
+  transition: all 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  position: relative;
+  overflow: hidden;
+}
+
+.rh-hero-main-logo::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
+  transition: 0.7s;
+}
+
+.rh-hero-main-logo:hover {
+  transform: translateY(-12px) scale(1.02);
+  box-shadow:
+    0 35px 70px rgba(13, 57, 131, 0.5),
+    0 0 30px rgba(255, 255, 255, 0.2);
+  /* border-color: rgba(255,255,255,0.6); */
+}
+
+.rh-hero-main-logo:hover::before {
+  left: 100%;
+}
+
+/* ===============================
+LOGOS GRID - محافظ عليه كما هو تماماً
+================================*/
+.rh-logos-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 25px;
+  align-items: center;
+  justify-items: center;
+  /* padding: 20px 0; */
+  position: relative;
+}
+
+/* الحفاظ على التصميم الأصلي للـ grid items */
+.rh-logos-grid .square-card {
+  width: 150px;
+  height: 150px;
+  /* border: 1px solid #f0f0f0; */
+  border-radius: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #ffffff00;
+  transition: all 0.3s ease;
+  overflow: hidden;
+}
+
+.rh-logos-grid .wide-card {
+  width: 80%; 
+  height: 100px;
+  /* border: 1px solid #f0f0f0; */
+  border-radius: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #ffffff00;
+  transition: all 0.3s ease;
+  overflow: hidden;
+}
+
+.rh-grid-item img {
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: cover;
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+
+.rh-grid-item:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 12px 24px rgba(13, 57, 131, 0.1);
+  /* border-color: #0d3983; */
+}
+
+/* تأثير إضافي للـ grid */
+.rh-logos-grid::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at center, rgba(255,255,255,0.05) 0%, transparent 70%);
+  border-radius: 20px;
+  z-index: -1;
+}
+
+.rh-logos-grid .RHCAFE {
+  background: #000000b3;
+}
+
+/* ===============================
+الترحيب الفخم
+================================*/
+.rh-welcome-section {
+  opacity: 0;
+  transform: translateY(50px) scale(0.9);
+  transition: all 1.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  margin-bottom: 40px;
+  position: relative;
+}
+
+.rh-welcome-section.visible {
+  opacity: 1;
+  transform: translateY(0) scale(1);
+}
+
+.rh-welcome-section.hide {
+  opacity: 0;
+  transform: translateY(-40px) scale(0.95);
+}
+
+.rh-welcome-glow {
+  position: absolute;
+  top: -20px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 120px;
+  height: 4px;
+  background: linear-gradient(90deg, transparent, #0d3983, #1a5bb8, #0d3983, transparent);
+  border-radius: 2px;
+  filter: blur(1px);
+  opacity: 0;
+  animation: glowAppear 1.5s 0.8s forwards;
+}
+
+@keyframes glowAppear {
+  to {
+    opacity: 1;
+    transform: translateX(-50%) scaleX(1.2);
+  }
+}
+
+.rh-welcome-title {
+  font-size: clamp(48px, 8vw, 84px);
+  font-weight: 950;
+  line-height: 0.95;
+  text-align: center;
+  margin: 0;
+  letter-spacing: -0.03em;
+  position: relative;
+}
+
+.rh-welcome-word {
+  background: linear-gradient(135deg, #0d3983 0%, #1a5bb8 50%, #2a6fd8 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  display: block;
+  animation: slideInLeft 1s ease-out 0.5s both;
+}
+
+.rh-welcome-to {
+  font-size: 0.28em;
+  color: rgba(13,57,131,0.6);
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  margin-top: -10px;
+  animation: slideInUp 1s ease-out 0.9s both;
+}
+
+.rh-welcome-group {
+  background: linear-gradient(135deg, #081228 0%, #0d3983 50%, #1a5bb8 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  display: block;
+  animation: slideInRight 1.2s ease-out 1s both;
+}
+
+.rh-welcome-group-sub {
+  font-size: 0.55em;
+  background: linear-gradient(135deg, #1a5bb8 0%, #2a6fd8 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  display: block;
+  animation: slideInRight 1.2s ease-out 1.1s both;
+}
+
+.rh-welcome-subtitle {
+  font-size: clamp(16px, 2.5vw, 20px);
+  color: rgba(255,255,255,0.9);
+  text-align: center;
+  margin-top: 20px;
+  font-weight: 500;
+  letter-spacing: 0.5px;
+  text-shadow: 0 4px 15px rgba(0,0,0,0.3);
+  animation: fadeInUp 1s ease-out 1.4s both;
+}
+
+/* انيميشنات الترحيب */
+@keyframes slideInLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-50px);
+  }
+}
+
+@keyframes slideInRight {
+  from {
+    opacity: 0;
+    transform: translateX(50px);
+  }
+}
+
+@keyframes slideInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(25px);
+  }
+}
+
+/* ===== انيميشن اللوجو ===== */
+.rh-hero-main-logo-wrapper {
+  opacity: 0;
+  transform: translateY(40px) scale(2);
+  transition: all 1.2s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.rh-hero-main-logo-wrapper.visible {
+  opacity: 1;
+  transform: translateY(0) scale(1);
+}
+
+/* تأثيرات إضافية للفخامة */
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-10px); }
+}
+
+.rh-comp-layout {
+  animation: float 6s ease-in-out infinite;
+}
+
+/* ===== بعد اختفاء الترحيب ===== */
+.rh-main-brand-section.center-logo {
+  justify-content: center;
+  min-height: 100vh;
+  transform: translateY(-450px);
+  transition: all 1.2s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+/* ===============================
+RESPONSIVE
+================================*/
+@media (max-width: 1200px) {
+  .rh-container {
+    max-width: 950px;
+    padding: 40px;
+  }
+}
+
+@media (max-width: 992px) {
+  .rh-hero {
+    padding: 60px 15px;
+  }
+
+  .rh-logos-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+  }
+
+  .rh-comp-layout {
+    height: auto;
+    gap: 40px;
+  }
+
+  .rh-container {
+    padding: 30px;
+    border-radius: 25px;
+  }
+}
+
+@media (max-width: 768px) {
+  .rh-logos-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .rh-hero-main-logo {
+    max-width: 90vw;
+    max-height: 140px;
+  }
+
+  .rh-container {
+    padding: 25px;
+    margin: 10px;
+  }
+
+  .rh-welcome-title {
+    font-size: clamp(36px, 7vw, 60px);
+  }
+
+  .rh-welcome-subtitle {
+    font-size: 16px;
+  }
+}
+/* ===============================
+   LOGOS GRID - PREMIUM FLOATING
+================================*/
+.rh-logos-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 220px);
+  gap: 35px 70px;
+
+  justify-content: center;
+  align-items: center;
+
+  position: relative;
+  margin-top: -10px;
+}
+
+/* ===== CARD BASE ===== */
+.rh-grid-item {
+  position: relative;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  overflow: hidden;
+
+  border-radius: 28px;
+
+  background:
+    linear-gradient(
+      135deg,
+      rgba(255,255,255,0.18),
+      rgba(255,255,255,0.04)
+    );
+
+  backdrop-filter: blur(18px);
+
+  /* border: 1px solid rgba(255,255,255,0.25); */
+
+  box-shadow:
+    0 10px 35px rgba(0,0,0,0.25),
+    inset 0 1px 0 rgba(255,255,255,0.18);
+
+  transition:
+    transform .45s ease,
+    box-shadow .45s ease,
+    border-color .45s ease;
+}
+
+/* ===== LIGHT EFFECT ===== */
+.rh-grid-item::before {
+  content: "";
+
+  position: absolute;
+  inset: 0;
+
+  background:
+    linear-gradient(
+      120deg,
+      transparent 20%,
+      rgba(255,255,255,0.25) 50%,
+      transparent 80%
+    );
+
+  transform: translateX(-130%);
+  transition: transform .8s ease;
+}
+
+/* ===== HOVER ===== */
+.rh-grid-item:hover {
+  transform:
+    translateY(-12px)
+    scale(1.03);
+  border-color: rgba(255,255,255,0.45);
+  box-shadow:
+    0 20px 45px rgba(13,57,131,0.35),
+    0 0 35px rgba(79,172,254,0.15);
+}
+
+.rh-grid-item:hover::before {
+  transform: translateX(130%);
+}
+
+/* ===== SQUARE CARDS ===== */
+.rh-logos-grid .square-card {
+  width: 150px;
+  height: 150px;
+}
+
+/* ===== WIDE CARDS ===== */
+.rh-logos-grid .wide-card {
+  width: 260px;
+  height: 110px;
+}
+
+/* ===== LOGO IMAGES ===== */
+.rh-grid-item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  padding: 12px;
+  transition:
+    transform .45s ease,
+    filter .45s ease;
+}
+
+/* ===== IMAGE HOVER ===== */
+.rh-grid-item:hover img {
+  transform: scale(1.05);
+  filter: brightness(1.08);
+}
+
+/* ===== RH CAFE DARK STYLE ===== */
+.rh-logos-grid .RHCAFE {
+  background:
+    linear-gradient(
+      135deg,
+      rgba(0,0,0,0.88),
+      rgba(20,20,20,0.75)
+    );
+}
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 992px) {
+  .rh-logos-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 25px;
+  }
+}
+
+@media (max-width: 768px) {
+  .rh-logos-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .rh-logos-grid .square-card,
+  .rh-logos-grid .wide-card {
+    width: 90%;
+  }
+}

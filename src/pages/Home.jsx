@@ -1,4 +1,5 @@
 import Hero from "../components/Hero";
+import HeroContant from "../components/HeroContant.jsx";
 import BusinessSectors from "../components/home/BusinessSectors";
 // import TrustSection from "../components/home/TrustSection";
 import StatsBar from "../components/home/StatsBar";
@@ -23,7 +24,7 @@ export default function Home() {
     <>
      
       <Hero />
-
+      {/* <HeroContant/> */}
       <RevealSection>
         <BusinessSectors />
       </RevealSection>
@@ -32,17 +33,17 @@ export default function Home() {
         <TrustSection />
       </RevealSection> */}
 
-      <RevealSection>
+      {/* <RevealSection>
         <StatsBar />
-      </RevealSection>
+      </RevealSection> */}
 
       <RevealSection>
         <PrestigiousCompanies />
       </RevealSection>
 
-      <RevealSection>
+      {/* <RevealSection>
         <Food />
-      </RevealSection>
+      </RevealSection> */}
 
       <RevealSection>
         <OurValue />

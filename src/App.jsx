@@ -37,7 +37,7 @@ export default function App() {
     <Routes>
       <Route element={<Layout />}>
         <Route path="/" element={<Home />} />
-        <Route path="/about" element={<About />} />
+        {/* <Route path="/about" element={<About />} />
         <Route path="/gallery" element={<Gallery />} />
         <Route path="/career" element={<Career />} />
         <Route path="/contact" element={<Contact />} />
@@ -45,7 +45,7 @@ export default function App() {
         <Route path="/companies/horizon" element={<Horizon />} />
         <Route path="/companies/overseas" element={<Overseas />} />
         <Route path="/companies/fazaa" element={<Fazaa />} />
-        <Route path="/EmployeeLogin" element={<EmployeeLogin/>}/>
+        <Route path="/EmployeeLogin" element={<EmployeeLogin/>}/> */}
       </Route>
     </Routes>
   );

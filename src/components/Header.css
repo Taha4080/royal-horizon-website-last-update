@@ -2,8 +2,17 @@
    Header Base
 ================================*/
 .header-area{
-  background-color:#131d33;
-  margin-bottom:97px;
+  /* margin-bottom: 100px; */
+  position: absolute;
+  top: 0px;
+  left: 0;
+  width: 100%;
+  z-index: 999;
+  background: transparent;
+}
+
+.main-header{
+  height: 10vh;
 }
 
 /* ===============================
@@ -15,22 +24,22 @@
 }
 
 /* ===============================
-   Sticky Navbar (after scroll)
+   Sticky Navbar (Agthia Style)
 ================================*/
 .header-bottom.is-sticky{
   position:fixed;
-  top:14px;                      /* مسافة من الأعلى */
+  top:14px;
   left:50%;
   transform:translateX(-50%);
   z-index:9999;
 
-  width:min(1400px,calc(100% - 28px)); /* فراغ يمين ويسار */
+  width:min(1400px,calc(100% - 28px));
   border-radius:16px;
 
-  background:rgba(19,29,51,0.65);  /* شفافية */
-  backdrop-filter:blur(12px);
+  background:#ffffff;
+  backdrop-filter:blur(20px);
 
-  box-shadow:0 10px 25px rgba(0,0,0,0.25);
+  box-shadow:0 10px 30px rgba(0,0,0,0.08);
 }
 
 /* ===============================
@@ -45,6 +54,11 @@
 ================================*/
 .logo img{
   max-width:150px;
+  transition:0.3s;
+}
+
+.header-bottom.is-sticky .logo img{
+  transform:scale(0.9);
 }
 
 /* ===============================
@@ -53,7 +67,7 @@
 #navigation{
   display:flex;
   align-items:center;
-  gap:1px !important;
+  gap:20px !important;
 }
 
 #navigation li{
@@ -61,25 +75,44 @@
   position:relative;
 }
 
-#navigation a{
-  text-decoration:none;
-  color:#ffffff;
-  font-weight:600;
-  transition:0.3s;
+#navigation a {
+  text-decoration: none;
+  color: #0A2E6B;
+  font-weight: 600;
+  font-size: 15px;
+  border-radius: 12px;
+  padding:10px 14px;
+  position:relative;
+  transition: 0.3s;
 }
 
-/* Hover */
+/* underline animation */
+#navigation a::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0%;
+  height: 2px;
+  background: #0dcaf0;
+  transition: 0.3s;
+}
+
+#navigation a:hover::after,
+#navigation a.active::after {
+  width: 100%;
+}
+
 #navigation a:hover{
-  color:#0dcaf0;
+  color:#0d3983;
 }
 
-/* Active */
 #navigation a.active{
-  color:#0dcaf0;
+  color:#0d3983;
 }
 
 /* ===============================
-   Dropdown Menu
+   Dropdown Menu (Clean)
 ================================*/
 .ul-submenu{
   position:relative;
@@ -91,11 +124,12 @@
   left:0;
   width:260px;
 
-  background-color:rgba(19,29,51,0.65) !important;
-  backdrop-filter:blur(10px);
-
-  border-radius:10px;
+  background:#ffffff !important;
+  border-radius:12px;
   padding:10px 0;
+
+  box-shadow:0 10px 25px rgba(0,0,0,0.08);
+  border:1px solid #eee;
 
   opacity:0;
   visibility:hidden;
@@ -110,10 +144,6 @@
   transform:translateY(0);
 }
 
-.submenu li{
-  padding:0;
-}
-
 .submenu a{
   display:block;
   padding:10px 18px;
@@ -123,24 +153,24 @@
 }
 
 .submenu a:hover{
-  background:#f3f3f3;
+  background:#f5f7fa;
 }
 
 /* ===============================
-   Contact Button
+   Contact Button (Agthia style)
 ================================*/
 .header-btn{
-  padding:18px 20px;
+  background:#0d3983;
+  color:#fff;
+  padding:12px 22px;
   border-radius:50px;
   font-weight:700;
-  border:1px solid #0dcaf0;
-  color:#081228;
-  background:#0dcaf0;
+  border:none;
   transition:.3s;
 }
 
 .header-btn:hover{
-  background:#09a9c4;
+  background:#0a2e6b;
   color:#fff;
 }
 
@@ -151,21 +181,22 @@
   margin-left:25px;
 }
 
-.Login ul{
-  padding:0;
-  margin:0;
-}
-
 .Login li{
   list-style:none;
 }
 
 .login-icon{
   margin-right:6px;
+  color: #0d3983;
+}
+
+.login-text{
+  color: #0d3983;
+  font-weight: bold;
 }
 
 /* ===============================
-   Mobile Toggle
+   Mobile
 ================================*/
 .rh-mobile-toggle{
   border:0;
@@ -174,14 +205,11 @@
   padding:10px;
 }
 
-/* ===============================
-   Mobile Menu
-================================*/
 .rh-mobile-menu{
   padding:6px;
-  background:#fcfbfb;
+  background:#ffffff;
   display:grid;
-  gap:2px ;
+  gap:6px;
   border-top:1px solid rgba(0,0,0,.08);
 }
 
@@ -191,20 +219,43 @@
   font-weight:600;
 }
 
-/* Mobile submenu button */
-.rh-mobile-companies{
-  border:0;
-  background:transparent;
-  text-align:left;
-  font-weight:700;
-  color:#000;
+/* ===============================
+   HERO FIX (بدون تعديل كبير)
+================================*/
+.hero-section{
+  display:flex;
+  align-items:stretch;
 }
 
-/* mobile submenu links */
-.rh-mobile-sub{
-  padding-left:12px;
-  display:grid;
-  gap: 2px;
+.hero-video{
+  flex:1;
+  height:300px;
+  border-radius:16px;
+  overflow:hidden;
+}
+
+.hero-video video{
+  width:100%;
+  height:100%;
+  object-fit:cover;
+}
+
+.hero-slider{
+  flex:1;
+  height:500px;
+}
+
+.hero-slider img{
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  border-radius:16px;
+}
+
+.hero-slider .slider-item{
+  height:100%;
+  border-radius:16px;
+  overflow:hidden;
 }
 
 /* ===============================
@@ -218,6 +269,15 @@
 
   #navigation{
     display:none;
+  }
+
+  .hero-section{
+    flex-direction:column;
+  }
+
+  .hero-video,
+  .hero-slider{
+    height:300px;
   }
 
 }
