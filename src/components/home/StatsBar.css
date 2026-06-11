@@ -1,208 +1,571 @@
+
+/* =========================================
+   STATS BAR - PREMIUM RESPONSIVE
+========================================= */
+
+/* ===== MAIN WRAPPER ===== */
+
+.stats-wrap{
+  position:relative;
+
+  overflow:hidden;
+
+  padding:clamp(80px,10vw,120px) 0;
+
+  /* min-height:100vh; */
+
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  
+}
+/* =========================================
+   PREMIUM FRAME
+========================================= */
+
+.stats-frame{
+  position:absolute;
+  top:40px;
+  left:40px;
+  right:-40px;
+  bottom:40px;
+
+  overflow:hidden;
+
+  border-radius:42px;
+
+  z-index:0;
+
+  background:#fff;
+
+  box-shadow:
+    0 40px 80px -25px rgba(15,23,42,0.18),
+    0 20px 40px -20px rgba(79,172,254,0.12);
+
+  border:
+    1px solid rgba(255,255,255,0.7);
+}
+
+/* =========================================
+   BACKGROUND IMAGE
+========================================= */
+
+.stats-bg-img{
+  position:absolute;
+  inset:0;
+
+  width:100%;
+  height:100%;
+
+  object-fit:cover;
+
+  transform:scale(1.05);
+
+  filter:
+    brightness(.92)
+    saturate(1.05);
+
+  animation:
+    statsZoom 18s ease-in-out infinite alternate;
+}
+
+/* =========================================
+   OVERLAY
+========================================= */
+
+.stats-frame-overlay{
+  position:absolute;
+  inset:0;
+
+  background:
+    linear-gradient(
+      180deg,
+      rgba(255,255,255,0.72) 0%,
+      rgba(255,255,255,0.84) 100%
+    );
+
+  backdrop-filter: blur(2px);
+}
+
+/* =========================================
+   CONTENT ABOVE FRAME
+========================================= */
+
+.stats-content{
+  position:relative;
+  z-index:2;
+}
+
+/* =========================================
+   ANIMATION
+========================================= */
+
+@keyframes statsZoom{
+
+  from{
+    transform:scale(1.05);
+  }
+
+  to{
+    transform:scale(1.12);
+  }
+}
+
+/* ===== VIDEO ===== */
+/* 
+.stats-video{
+  position:absolute;
+  inset:0;
+
+  width:100%;
+  height:100%;
+
+  object-fit:cover;
+
+  z-index:0;
+
+  transform:translateZ(0);
+
+  backface-visibility:hidden;
+} */
+
+/* ===== OVERLAY ===== */
+
+/* .stats-overlay{
+  position:absolute;
+  inset:0;
+
+  background:linear-gradient(
+    135deg,
+    rgba(5,15,32,0.88) 0%,
+    rgba(15,30,58,0.92) 50%,
+    rgba(5,26,58,0.95) 100%
+  );
+
+  z-index:1;
+} */
+
+/* ===== GLOW EFFECTS ===== */
+
+.stats-overlay::before{
+  content:"";
+
+  position:absolute;
+
+  top:-30%;
+  left:-20%;
+
+  width:50%;
+  height:50%;
+
+  background:radial-gradient(
+    circle,
+    rgba(79,172,254,0.12) 0%,
+    transparent 60%
+  );
+
+  animation:glowMove 10s ease-in-out infinite;
+}
+
+.stats-overlay::after{
+  content:"";
+
+  position:absolute;
+
+  bottom:-20%;
+  right:-10%;
+
+  width:40%;
+  height:40%;
+
+  background:radial-gradient(
+    circle,
+    rgba(168,85,247,0.08) 0%,
+    transparent 60%
+  );
+
+  animation:glowMove 12s ease-in-out infinite reverse;
+}
+
+/* ===== ANIMATION ===== */
+
+@keyframes glowMove{
+
+  0%,
+  100%{
+    opacity:0.5;
+    transform:translate(0,0);
+  }
+
+  50%{
+    opacity:1;
+    transform:translate(20px,-20px);
+  }
+
+}
+
 /* =========================
-   STATS SECTION - فخم جداً
+   APPLE STYLE STATS SECTION
 ========================= */
-.stats-wrap {
+
+.stats-section{
   position: relative;
+
+  padding: 110px 0;
+
   overflow: hidden;
-  padding: 140px 0;
-  min-height: 480px;
-  display: flex;
-  align-items: center;
 
-  /* تأثير الضباب الخفيف */
-  background: 
-    radial-gradient(ellipse at center, rgba(13,57,131,0.05) 0%, transparent 50%),
-    radial-gradient(ellipse at top, rgba(255,255,255,0.02) 0%, transparent 40%);
-}
-
-/* الفيديو فخم */
-.stats-video {
-  position: absolute;
-  inset: 0;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  z-index: 0;
-
-  /* فلتر خفيف للفخامة */
-  filter: brightness(0.85) contrast(1.1) saturate(1.15);
-}
-
-/* طبقة التغميق الفخمة */
-.stats-overlay {
-  position: absolute;
-  inset: 0;
-  background: 
-    linear-gradient(135deg, rgba(5,15,32,0.75) 0%, rgba(15,30,58,0.85) 50%, rgba(5,26,58,0.9) 100%);
-  z-index: 1;
-}
-
-/* محتوى فوق الفيديو */
-.stats-content {
-  position: relative;
-  z-index: 3;
+  background-color: #ffffff; /* خلفية بيضاء نقية */
 }
 
 /* =========================
-   GRID فخم
+   CONTENT
 ========================= */
-.stats-grid {
+
+.stats-content{
+  position: relative;
+  z-index: 2;
+
+  width: min(1200px,92%);
+  margin: auto;
+}
+
+/* =========================
+   GRID
+========================= */
+
+.stats-grid{
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 45px 25px;
-  align-items: center;
 
-  /* تأثير الضوء الخفيف */
-  position: relative;
-}
+  grid-template-columns: repeat(3,1fr);
 
-.stats-grid::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background: 
-    radial-gradient(circle at 20% 20%, rgba(255,255,255,0.08) 0%, transparent 50%),
-    radial-gradient(circle at 80% 80%, rgba(13,57,131,0.06) 0%, transparent 50%);
-  border-radius: 25px;
-  z-index: -1;
-  padding: 20px;
-  mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
-  mask-composite: exclude;
+  gap: 32px;
 }
 
 /* =========================
-   ITEM - زجاج فاخر
+   CARD
 ========================= */
-.stats-item {
+
+.stats-item{
+  position: relative;
+
+  overflow: hidden;
+
   text-align: center;
-  background: rgba(255,255,255,0.08);
-  backdrop-filter: blur(25px);
-  border: 1px solid rgba(255,255,255,0.15);
+
+  padding:
+    clamp(35px,5vw,50px)
+    clamp(24px,4vw,30px);
+
   border-radius: 28px;
-  padding: 45px 25px;
-  position: relative;
-  overflow: hidden;
 
-  /* Animation دخول فخم */
+  background: #ffffff36; /* خلفية صلبة بيضاء */
+
+  border: 2px solid rgba(0, 0, 0, 0.292); /* حدود خفيفة جداً للتعريف */
+
+  box-shadow: 
+    0 4px 20px rgba(0,0,0,0.03), /* ظل ناعم جداً */
+    0 12px 40px rgba(0,0,0,0.02);
+
+  transition:
+    transform .45s ease,
+    box-shadow .45s ease,
+    border-color .45s ease;
+
   opacity: 0;
-  transform: translateY(30px) scale(0.95);
-  transition: all 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+
+  transform:
+    translateY(40px)
+    scale(.96);
 }
 
-.stats-item::before {
+/* Soft Top Shine - تم تليينه ليعمل على الابيض */
+.stats-item::before{
   content: "";
+
   position: absolute;
+
   top: 0;
-  left: -100%;
-  width: 100%;
+  left: -120%;
+
+  width: 70%;
   height: 100%;
-  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
-  transition: left 0.8s;
+
+  transform: skewX(-25deg);
+
+  background:
+    linear-gradient(
+      90deg,
+      transparent,
+      rgba(255,255,255,0.7),
+      transparent
+    );
+
+  transition: .9s ease;
 }
 
-.stats-item.is-visible {
-  opacity: 1;
-  transform: translateY(0) scale(1);
-}
-
-.stats-item.is-visible::before {
-  left: 100%;
-}
-
-/* =========================
-   ICON - دائرة فخمة
-========================= */
-.start-icon {
-  width: 85px;
-  height: 85px;
-  border-radius: 50%;
-  margin: 0 auto 22px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  font-size: 38px;
-  color: #fff;
-  background: 
-    linear-gradient(135deg, rgba(255,255,255,0.2), rgba(255,255,255,0.1));
-  backdrop-filter: blur(20px);
-  border: 2px solid rgba(255,255,255,0.25);
-  box-shadow: 
-    0 12px 30px rgba(0,0,0,0.3),
-    inset 0 1px 0 rgba(255,255,255,0.3);
-  transition: all 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-  position: relative;
-  overflow: hidden;
-}
-
-.start-icon::before {
+/* Subtle Ambient Glow - تم استبدال اللونين بتوهج ابيض خفيف */
+.stats-item::after{
   content: "";
+
   position: absolute;
-  inset: 0;
-  background: radial-gradient(circle at 30% 30%, rgba(255,255,255,0.3) 0%, transparent 50%);
-  opacity: 0;
-  transition: opacity 0.4s;
+
+  top: -70px;
+  right: -70px;
+
+  width: 170px;
+  height: 170px;
+
+  background:
+    radial-gradient(
+      circle,
+      rgba(0,0,0,0.03),
+      transparent 70%
+    );
+
+  pointer-events: none;
 }
 
-.stats-item:hover .start-icon {
-  transform: translateY(-8px) scale(1.08);
-  box-shadow: 
-    0 20px 45px rgba(13,57,131,0.4),
-    inset 0 1px 0 rgba(255,255,255,0.4);
-}
+/* =========================
+   VISIBLE
+========================= */
 
-.stats-item:hover .start-icon::before {
+.stats-item.is-visible{
   opacity: 1;
+
+  transform:
+    translateY(0)
+    scale(1);
+}
+
+.stats-item.is-visible::before{
+  left: 140%;
 }
 
 /* =========================
-   VALUE - أرقام فخمة
+   HOVER
 ========================= */
-.stats-value {
-  font-size: 48px;
-  font-weight: 900;
-  line-height: 1.1;
+
+.stats-item:hover{
+  transform:
+    translateY(-14px)
+    scale(1.025);
+
+  border-color:
+    rgba(79,172,254,0.15); /* تلميح بسيط من اللون عند التحويم */
+
+  box-shadow:
+    0 25px 50px rgba(0,0,0,0.06),
+    0 15px 25px rgba(79,172,254,0.08);
+}
+
+/* =========================
+   ICON
+========================= */
+
+.start-icon{
+  width: 84px;
+  height: 84px;
+
+  margin: 0 auto 26px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 28px;
+
+  font-size: 34px;
+
   color: #fff;
-  text-shadow: 
-    0 8px 25px rgba(0,0,0,0.6),
-    0 0 20px rgba(255,255,255,0.1);
-  letter-spacing: -0.02em;
-  margin-bottom: 12px;
-  position: relative;
+
+  background:
+    linear-gradient(
+      135deg,
+      #4facfe 0%,
+      #8f94fb 100%
+    );
+
+  box-shadow:
+    0 12px 24px rgba(79,172,254,0.2); /* ظل أنظف */
+
+  transition: .45s ease;
 }
 
-.stats-value::after {
+.stats-item:hover .start-icon{
+  transform:
+    translateY(-6px)
+    scale(1.06)
+    rotate(4deg);
+
+  box-shadow:
+    0 18px 35px rgba(79,172,254,0.25);
+}
+
+/* =========================
+   VALUE
+========================= */
+
+.stats-value{
+  margin-bottom: 14px;
+
+  font-size:
+    clamp(40px,6vw,56px);
+
+  font-weight: 800;
+
+  line-height: 1.05;
+
+  letter-spacing: -0.04em;
+
+  color: #111827;
+}
+
+.stats-value span{
+  background:
+    linear-gradient(
+      135deg,
+      #4facfe 0%,
+      #8f94fb 100%
+    );
+
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.stats-value::after{
   content: "+";
-  font-size: 0.6em;
-  opacity: 0.8;
+
+  font-size: .45em;
+
+  opacity: .65;
+
   margin-left: 4px;
+
+  vertical-align: super;
+  
+  color: inherit; /* ليرث اللون من الاب */
+  -webkit-text-fill-color: currentColor;
 }
 
 /* =========================
-   LABEL - نص فخم
+   LABEL
 ========================= */
-.stats-label {
-  font-size: 16px;
-  font-weight: 700;
-  color: rgba(255,255,255,0.92);
-  letter-spacing: 0.5px;
+
+.stats-label{
+  font-size: 13px;
+
+  font-weight: 600;
+
+  color: #111827; /* لون أفتح للابيض */
+  font-weight: 800;
+  letter-spacing: 1.2px;
+
   text-transform: uppercase;
-  position: relative;
 }
 
 /* =========================
-   RESPONSIVE فخم
+   RESPONSIVE
 ========================= */
-@media (max-width: 992px) {
-  .stats-wrap { padding: 100px 0; min-height: 420px; }
-  .stats-grid { grid-template-columns: repeat(2, 1fr); gap: 35px 20px; }
-  .stats-item { padding: 35px 20px; }
-  .stats-value { font-size: 42px; }
+
+@media(max-width: 991px){
+
+  .stats-grid{
+    grid-template-columns: repeat(2,1fr);
+    
+    gap: 24px;
+  }
 }
 
-@media (max-width: 520px) {
-  .stats-grid { grid-template-columns: 1fr; gap: 30px; }
-  .stats-wrap { padding: 80px 0; min-height: 380px; }
-  .stats-value { font-size: 38px; }
-  .stats-item { padding: 30px 18px; }
-  .start-icon { width: 70px; height: 70px; font-size: 32px; }
+@media(max-width: 650px){
+
+  .stats-grid{
+    grid-template-columns: 1fr;
+  }
+
+  .stats-section{
+    padding: 80px 0;
+  }
+
+  .stats-item{
+    border-radius: 24px;
+  }
+}
+/* =========================================
+   LARGE TABLET
+========================================= */
+
+@media (max-width:992px){
+
+  .stats-grid{
+    grid-template-columns:repeat(2,1fr);
+
+    gap:24px;
+  }
+
+}
+
+/* =========================================
+   TABLET
+========================================= */
+
+@media (max-width:768px){
+
+  .stats-wrap{
+    min-height:auto;
+  }
+
+  .stats-grid{
+    gap:20px;
+  }
+
+  .stats-item{
+    border-radius:22px;
+  }
+
+}
+
+/* =========================================
+   MOBILE
+========================================= */
+
+@media (max-width:600px){
+
+  .stats-wrap{
+    padding:80px 0;
+  }
+
+  .stats-grid{
+    grid-template-columns:1fr;
+
+    max-width:400px;
+
+    margin:auto;
+  }
+
+  .stats-item{
+    padding:32px 22px;
+  }
+
+}
+
+/* =========================================
+   SMALL MOBILE
+========================================= */
+
+@media (max-width:480px){
+
+  .stats-content{
+    width:94%;
+  }
+
+  .stats-item{
+    border-radius:20px;
+  }
+
+  .stats-label{
+    letter-spacing:0.4px;
+  }
+
 }

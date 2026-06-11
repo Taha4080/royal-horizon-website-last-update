@@ -20,8 +20,8 @@ export default function Header() {
   useEffect(() => {
     setMobileOpen(false);
     setCompaniesOpen(false);
-  }, [location.pathname]);
-
+  }, [location.pathname]);  
+  
   return (
     <header className="header-area header-transparent">
       <div className="main-header">

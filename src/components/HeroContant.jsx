@@ -32,6 +32,17 @@ export default function HeroContant() {
 
   return (
     <section className="rh-hero">
+      <div className="rh-video-frame">
+      <video
+      autoPlay
+      muted
+      loop
+      playsInline
+      className="rh-hero-bg">
+        <source src="/assets/img/hero/0508.mp4" type="video/mp4" />
+      </video>
+      {/* <div className="rh-video-overlay"></div> */}
+      </div>
       <div className="rh-comp-layout animate-fade">
         <div className="rh-container transparent">
           <div className={`rh-main-brand-section ${hideWelcome ? "center-logo" : ""}`}>
@@ -68,7 +79,7 @@ export default function HeroContant() {
 
             {/* اللوجوز الصغيرة */}
             <div className="rh-logos-grid">
-              <Link to="../companies/Horizon" className="rh-grid-item square-card line-1">
+              <Link to="../companies/horizon" className="rh-grid-item square-card line-1">
                 <img src="/assets/img/logo/RHGT1.png" alt="Horizon" />
               </Link>
               

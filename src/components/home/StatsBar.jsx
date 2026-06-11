@@ -96,7 +96,12 @@ export default function StatsBar() {
 
   return (
     <section ref={sectionRef} className="stats-wrap">
-      <video
+      <div className="stats-frame">
+        <img src="/assets/img/hero/stats-bg.png" alt="stats background" className="stats-bg-img"   />
+
+        {/* <div className="stats-frame-overlay" ></div>    */}
+      </div>
+      {/* <video
         className="stats-video"
         autoPlay
         muted
@@ -105,9 +110,10 @@ export default function StatsBar() {
         preload="metadata"
       >
         <source src={videoSrc} type="video/mp4" />
-      </video>
+      </video> */}
 
-      <div className="stats-overlay" />
+      {/* <div className="stats-overlay" /> */}
+      
       
       <div className="container stats-content">
         <div className="stats-grid">
@@ -124,6 +130,7 @@ export default function StatsBar() {
           ))}
         </div>
       </div>
+
     </section>
   );
 }

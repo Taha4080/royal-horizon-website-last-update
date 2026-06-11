@@ -7,17 +7,109 @@ HERO BACKGROUND - صورة غامقة فخمة
   position: relative;
   overflow: hidden;
   /* الصورة الرئيسية مع تدرج غامق */
-  background:
-    linear-gradient(135deg, rgba(5, 15, 32, 0.377) 50%, rgba(15, 30, 58, 0.486) 0%, rgba(5,26,58,0.95) 100%),
-    url("/assets/img/about/fleet2.jpg");
+  /* background: linear-gradient(
+    to bottom,
+    rgba(245, 242, 242, 0) 0%,
+    rgba(226, 226, 228, 0.05) 50%,
+    rgba(167, 165, 165, 0.1) 100%
+  ); */
   background-size: cover, cover;
   background-position: center, center;
   background-blend-mode: multiply;
   background-attachment: fixed;
 }
+/* =========================
+   VIDEO FRAME
+========================= */
+
+.rh-video-frame{
+  position:absolute;
+  top:50px;
+left:-40px;
+right:70px;
+bottom:10px;
+
+  border-radius:40px;
+
+  overflow:hidden;
+
+  z-index:0;
+
+box-shadow:
+  0 20px 40px -10px rgba(0,0,0,0.22),
+  0 12px 25px -12px rgba(79,172,254,0.12);
+
+  border:
+    1px solid rgba(255,255,255,0.18);
+
+  /* background:#000; */
+}
+
+/* =========================
+   VIDEO
+========================= */
+
+.rh-hero-bg{
+  width:100%;
+  height:100%;
+
+  object-fit:cover;
+
+  position:absolute;
+  inset:0;
+  transform:scale(1.05);
+
+  /* filter:
+    brightness(0.75)
+    saturate(1.1); */
+
+  /* animation:slowZoom 14s ease-in-out infinite alternate; */
+}
+
+/* =========================
+   OVERLAY
+========================= */
+
+/* .rh-video-overlay{
+  position:absolute;
+  inset:0; */
+
+  /* background:
+    linear-gradient(
+      180deg,
+      rgba(0,0,0,0.35) 0%,
+      rgba(0,0,0,0.55) 100%
+    ); */
+
+  /* backdrop-filter: blur(1px); */
+/* } */
+
+/* =========================
+   HERO CONTENT
+========================= */
+
+.rh-comp-layout{
+  position:relative;
+  z-index:2;
+}
+
+/* =========================
+   ANIMATION
+========================= */
+
+@keyframes slowZoom{
+
+  from{
+    transform:scale(1.05);
+  }
+
+  to{
+    transform:scale(1.12);
+  }
+}
 
 /* تأثير النجوم المتحركة - أخف */
-.rh-hero::before {
+/* .rh-hero::before {
   content: "";
   position: absolute;
   inset: 0;
@@ -30,15 +122,15 @@ HERO BACKGROUND - صورة غامقة فخمة
   background-size: 200px 100px;
   animation: sparkle 20s linear infinite;
   z-index: 0;
-}
-
+} */
+/* 
 @keyframes sparkle {
   0% { transform: translateX(0) translateY(0) rotate(0deg); }
   100% { transform: translateX(-200px) translateY(-100px) rotate(360deg); }
-}
+} */
 
 /* تأثير الضوء المتحرك - أخف */
-.rh-hero::after {
+/* .rh-hero::after {
   content: "";
   position: absolute;
   top: -50%;
@@ -50,12 +142,12 @@ HERO BACKGROUND - صورة غامقة فخمة
     radial-gradient(circle at 80% 80%, rgba(120,119,198,0.06) 0%, transparent 50%);
   animation: shine 15s ease-in-out infinite;
   z-index: 0;
-}
+} */
 
-@keyframes shine {
+/* @keyframes shine {
   0%, 100% { transform: translateX(-20%) translateY(-20%) rotate(0deg); }
   50% { transform: translateX(20%) translateY(20%) rotate(180deg); }
-}
+} */
 
 /* ===============================
 MAIN CONTAINER - زجاج فاخر بسيط
@@ -76,7 +168,7 @@ MAIN CONTAINER - زجاج فاخر بسيط
   position: absolute;
   inset: 0;
   z-index: 1;
-  background: rgba(0, 0, 0, 0.084);
+  /* background: rgba(0, 0, 0, 0.084); */
   backdrop-filter: blur(3px);
 }
 
@@ -100,10 +192,10 @@ MAIN LOGO - فخم جداً
   max-width: 750px;
   max-height: 180px;
   object-fit: contain;
-  filter: drop-shadow(0 20px 40px rgba(13, 57, 131, 0.4));
+  /* filter: drop-shadow(0 20px 40px rgba(13, 57, 131, 0.4)); */
   border-radius: 25px;
   /* border: 2px solid rgba(255,255,255,0.3); */
-  background: rgba(255,255,255,0.1);
+  background: rgba(243, 243, 243, 0.514);
   backdrop-filter: blur(20px);
   transition: all 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
   position: relative;
@@ -294,7 +386,7 @@ LOGOS GRID - محافظ عليه كما هو تماماً
 
 .rh-welcome-subtitle {
   font-size: clamp(16px, 2.5vw, 20px);
-  color: rgba(255,255,255,0.9);
+  color: #1a5bb8;
   text-align: center;
   margin-top: 20px;
   font-weight: 500;

@@ -53,7 +53,9 @@
    Logo
 ================================*/
 .logo img{
-  max-width:150px;
+  padding-top: 10px;
+  width:clamp(140px,18vw,250px);
+  height:auto;
   transition:0.3s;
 }
 
@@ -278,6 +280,19 @@
   .hero-video,
   .hero-slider{
     height:300px;
+  }
+
+}
+@media (max-width:768px){
+
+  .main-header{
+    height:auto;
+    padding:12px 0;
+  }
+
+  .header-bottom.is-sticky{
+    width:95%;
+    top:10px;
   }
 
 }
