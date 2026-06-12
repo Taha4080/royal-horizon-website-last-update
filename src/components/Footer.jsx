@@ -10,7 +10,7 @@ export default function Footer() {
               <div className="col-xl-3 col-lg-4 col-md-6 col-sm-8">
                 <div className="single-footer-caption mb-50">
                   <div className="footer-logo mb-25">
-                    <a href="/"><img src="/assets/img/logo/logo.png" alt="Royal Horizon" /></a>
+                    <a href="/"><img src="/assets/img/logo/RHH1.png" alt="Royal Horizon" /></a>
                   </div>
                   <div className="footer-tittle">
                     <div className="footer-pera">

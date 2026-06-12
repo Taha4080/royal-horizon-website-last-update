@@ -1,34 +1,168 @@
-.git-wrap { padding: 80px 0; background: #111; color: #fff; }
-.git-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; }
-.git-form h3 { font-weight: 900; margin-bottom: 20px; }
+/* =========================
+   Get In Touch - Light Mode
+========================= */
 
-.git-form input, .git-form textarea {
-  width: 100%;
-  background: transparent;
-  border: 1px solid rgba(255,255,255,.25);
-  color: #fff;
-  padding: 10px 12px;
-  border-radius: 8px;
-  margin-bottom: 12px;
+.git-wrap {
+  padding: 100px 0;
+  background: #f8fafc;
+  color: #1e293b;
 }
+
+.git-wrap .container {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+/* Grid Layout */
+.git-grid {
+  display: grid;
+  grid-template-columns: 1.1fr 1fr;
+  gap: 40px;
+  align-items: stretch;
+}
+
+/* ===== Form Section ===== */
+.git-form {
+  background: #ffffff;
+  padding: 40px;
+  border-radius: 16px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.04);
+  display: flex;
+  flex-direction: column;
+}
+
+.git-form h3 {
+  font-size: 24px;
+  font-weight: 900;
+  color: #0f172a;
+  margin-bottom: 28px;
+  letter-spacing: -0.5px;
+}
+
+/* Inputs */
+.git-form input,
+.git-form textarea {
+  width: 100%;
+  background: #f1f5f9;
+  border: 2px solid #e2e8f0;
+  color: #334155;
+  padding: 14px 16px;
+  border-radius: 10px;
+  margin-bottom: 16px;
+  font-size: 15px;
+  font-family: inherit;
+  transition: all 0.2s ease;
+}
+
+.git-form input::placeholder,
+.git-form textarea::placeholder {
+  color: #94a3b8;
+}
+
+.git-form input:focus,
+.git-form textarea:focus {
+  background: #ffffff;
+  border-color: #102a83;
+  outline: none;
+  box-shadow: 0 0 0 4px rgba(16, 42, 131, 0.1);
+}
+
+/* Textarea */
+.git-form textarea {
+  resize: vertical;
+  min-height: 140px;
+}
+
+/* Button */
 .git-form button {
   width: 100%;
-  background: transparent;
-  border: 1px solid #f2c94c;
-  color: #f2c94c;
-  padding: 12px;
-  border-radius: 999px;
+  background: #102a83;
+  border: none;
+  color: #ffffff;
+  padding: 16px 32px;
+  border-radius: 10px;
   font-weight: 800;
-}
-.git-form button:hover{
-  color: #fff;
-  background-color: #f2c94c;
-}
-.git-wrap .container h3{
-  color: white;
+  font-size: 15px;
+  letter-spacing: 1px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  margin-top: 8px;
 }
 
-.git-map { border-radius: 12px; overflow: hidden; background: rgba(255,255,255,.06); min-height: 320px; }
-.map-placeholder { height: 100%; display: flex; align-items: center; justify-content: center; opacity: .7; font-weight: 800; }
+.git-form button:hover {
+  background: #1e3a8a;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(16, 42, 131, 0.25);
+}
 
-@media (max-width: 992px) { .git-grid { grid-template-columns: 1fr; } }
+/* ===== Map Section ===== */
+.git-map {
+  border-radius: 16px;
+  overflow: hidden;
+  background: #ffffff;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.04);
+  position: relative;
+  min-height: 100%;
+  min-width: 100%;
+}
+
+.git-map iframe {
+  display: block;
+  min-height: 500px;
+  border: none;
+}
+
+/* Map Placeholder Overlay */
+.map-placeholder {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: #e2e8f0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #64748b;
+  font-weight: 700;
+  font-size: 14px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  pointer-events: none;
+}
+
+/* Hide placeholder when iframe loads (optional JS needed) */
+.git-map iframe:not([src=""]) + .map-placeholder {
+  display: none;
+}
+
+/* ===== Responsive ===== */
+@media (max-width: 992px) {
+  .git-wrap {
+    padding: 60px 0;
+  }
+  
+  .git-grid {
+    grid-template-columns: 1fr;
+    gap: 30px;
+  }
+  
+  .git-form {
+    padding: 30px 24px;
+  }
+  
+  .git-map iframe {
+    min-height: 400px;
+  }
+}
+
+@media (max-width: 576px) {
+  .git-form h3 {
+    font-size: 20px;
+  }
+  
+  .git-form {
+    padding: 24px 20px;
+  }
+}

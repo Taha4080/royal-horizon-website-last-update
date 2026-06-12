@@ -293,224 +293,6 @@
 }
 /* Hero.css - Updated with Animations */
 
-/* ===== VIDEO SLIDE STYLES ===== */
-.video-slide {
-  min-height: 100vh;
-  height: auto;
-  width: 100%;
-  position: relative;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  overflow: hidden;
-}
-
-/* Video Background */
-.hero-video-bg {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  z-index: 1;
-}
-
-/* Dark Overlay */
-.video-overlay {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: linear-gradient(
-    to bottom,
-    rgba(226, 224, 224, 0) 0%,
-    rgba(205, 205, 207, 0.2) 50%,
-    rgba(138, 128, 128, 0.2) 100%
-  );
-  z-index: 2;
-}
-
-/* Content Container */
-.video-content {
-  position: relative;
-  z-index: 3;
-  max-width: 700px;
-  padding: 3rem;
-  text-align: center;
-  color: #fff;
-}
-
-/* Title */
-.quality-title {
-  font-size: 3.5rem;
-  font-weight: 800;
-  margin-bottom: 1.5rem;
-  background: linear-gradient(135deg, #ffffff 0%, #4facfe 50%, #00f2fe 100%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
-  letter-spacing: 3px;
-  text-transform: uppercase;
-  opacity: 0;
-  transform: translateY(40px);
-  animation: slideDown 0.8s ease-out 0.3s forwards;
-}
-
-/* Content */
-.quality-content {
-  margin-bottom: 2rem;
-}
-
-.quality-content p {
-  font-size: 1.1rem;
-  line-height: 1.9;
-  color: rgb(240, 236, 236);
-  font-family: 'Poppins', 'Segoe UI', sans-serif;
-  opacity: 0;
-  transform: translateY(40px);
-  animation: slideUp 0.8s ease-out 0.6s forwards;
-}
-
-/* Features List */
-.quality-features {
-  display: flex;
-  justify-content: center;
-  gap: 2rem;
-  flex-wrap: wrap;
-  opacity: 0;
-  transform: translateY(40px);
-  animation: slideUp 0.8s ease-out 0.9s forwards;
-}
-
-.feature-item {
-  display: flex;
-  align-items: center;
-  gap: 0.5rem;
-  font-size: 0.95rem;
-  color: rgba(255, 255, 255, 1);
-  padding: 0.6rem 1.2rem;
-  background: rgba(255, 255, 255, 0.1);
-  border-radius: 30px;
-  border: 1px solid rgba(255, 255, 255, 0.2);
-  backdrop-filter: blur(10px);
-  transition: all 0.3s ease;
-  
-}
-
-.feature-item:hover {
-  background: rgba(79, 172, 254, 0.2);
-  border-color: rgba(79, 172, 254, 0.5);
-  transform: translateY(-3px);
-}
-
-.feature-icon {
-  color: #4facfe;
-  font-weight: bold;
-
-}
-
-/* ===== ANIMATIONS ===== */
-@keyframes slideDown {
-  from {
-    opacity: 0;
-    transform: translateY(40px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-@keyframes slideUp {
-  from {
-    opacity: 0;
-    transform: translateY(40px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-@keyframes fadeIn {
-  from {
-    opacity: 0;
-  }
-  to {
-    opacity: 1;
-  }
-}
-
-/* ===== RESPONSIVE ===== */
-@media (max-width: 1024px) {
-  .quality-title {
-    font-size: 2.8rem;
-  }
-  
-  .video-content {
-    max-width: 600px;
-    padding: 2rem;
-  }
-}
-
-@media (max-width: 768px) {
-  .quality-title {
-    font-size: 2rem;
-    letter-spacing: 2px;
-  }
-  
-  .quality-content p {
-    font-size: 0.95rem;
-  }
-  
-  .video-content {
-    max-width: 90%;
-    padding: 1.5rem;
-  }
-  
-  .quality-features {
-    gap: 1rem;
-  }
-  
-  .feature-item {
-    font-size: 0.85rem;
-    padding: 0.5rem 1rem;
-  }
-}
-
-@media (max-width: 480px) {
-  .quality-title {
-    font-size: 1.6rem;
-  }
-  
-  .quality-content p {
-    font-size: 0.85rem;
-    line-height: 1.6;
-  }
-  
-  .feature-item {
-    font-size: 0.75rem;
-  }
-}
-/* Add this to each component's CSS file */
-
-/* Example for HeroContant.css */
-.hero-content {
-  /* Initial state */
-  opacity: 0;
-  transform: translateY(30px);
-  animation: fadeInUp 0.8s ease-out forwards;
-}
-
-@keyframes fadeInUp {
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
 /* StatsBar.css */
 .stats-container {
   opacity: 0;
@@ -593,4 +375,88 @@
   .slide {
     overflow: hidden;
   }
+}
+
+/* ===========================
+   MAIN FRAME
+=========================== */
+
+.fb-wrap{
+  position:relative;
+
+  padding:80px 0;
+
+  background:
+    linear-gradient(
+      180deg,
+      #f8fbff 0%,
+      #eef6ff 100%
+    );
+}
+
+.fb-frame{
+  width:min(1400px,95%);
+
+  margin:auto;
+
+  padding:60px;
+
+  border-radius:42px;
+
+  background:
+    rgba(255,255,255,0.72);
+
+  backdrop-filter:blur(18px);
+
+  border:
+    1px solid rgba(255,255,255,0.8);
+
+  box-shadow:
+    0 35px 80px rgba(15,23,42,0.08),
+    0 15px 30px rgba(79,172,254,0.08);
+
+  position:relative;
+
+  overflow:hidden;
+}
+.fb-frame::before{
+  content:"";
+
+  position:absolute;
+
+  top:-150px;
+  right:-150px;
+
+  width:350px;
+  height:350px;
+
+  background:
+    radial-gradient(
+      circle,
+      rgba(79,172,254,0.15),
+      transparent 70%
+    );
+
+  pointer-events:none;
+}
+
+.fb-frame::after{
+  content:"";
+
+  position:absolute;
+
+  bottom:-150px;
+  left:-150px;
+
+  width:350px;
+  height:350px;
+
+  background:
+    radial-gradient(
+      circle,
+      rgba(0,242,254,0.12),
+      transparent 70%
+    );
+
+  pointer-events:none;
 }

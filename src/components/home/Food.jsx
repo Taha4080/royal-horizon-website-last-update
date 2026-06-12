@@ -18,11 +18,11 @@ const FOOD_IMAGES = [
 ];
 
 const NONFOOD_IMAGES = [
-  "/assets/img/Food/fn1.png",
+  "/assets/img/Food/fn4.png",
   "/assets/img/Food/fn2.png",
   "/assets/img/Food/fn3.png",
-  "/assets/img/Food/fn4.png",
   "/assets/img/Food/fn5.png",
+  "/assets/img/Food/fn1.png",
 ];
 
 function BrandCard({ src, alt }) {
@@ -43,43 +43,64 @@ function BrandCard({ src, alt }) {
 export default function Food() {
   return (
     <section className="fb-wrap">
-      <div className="container">
-        <div className="fb-head">
-          <h3 className="fb-title">
-            Our Brands – A Legacy of Quality and Trust
-          </h3>
-          <p className="fb-desc">
-            At Royal Horizon Holding, our diverse portfolio features over 25,000
-            FMCG SKUs, reflecting our commitment to serving every household need
-            with excellence. We proudly own 11 distinguished private labels and
-            represent 8 globally recognized third-party brands under exclusive
-            distribution rights.
-          </p>
-        </div>
 
-        {/* Food */}
-        <div className="fb-section">
-          <div className="fb-section__left">
-            <h4 className="fb-section__title">Food</h4>
+      {/* FRAME مثل StatsBar */}
+      <div className="fb-frame">
+        <img
+          src="/assets/img/hero/stats-bg.png"
+          alt="brands background"
+          className="fb-bg-img"
+        />
+        <div className="fb-frame-overlay"></div>
+
+
+        <div className="container fb-content">
+          <div className="fb-head">
+            <h3 className="fb-title">
+              Our Brands – A Legacy of Quality and Trust
+            </h3>
+
+            <p className="fb-desc">
+              At Royal Horizon Holding, our diverse portfolio features over 25,000
+              FMCG SKUs, reflecting our commitment to serving every household need
+              with excellence. We proudly own 11 distinguished private labels and
+              represent 8 globally recognized third-party brands under exclusive
+              distribution rights.
+            </p>
           </div>
 
-          <div className="fb-grid">
-            {FOOD_IMAGES.map((src, i) => (
-              <BrandCard key={src} src={src} alt={`Food brand ${i + 1}`} />
-            ))}
-          </div>
-        </div>
+          {/* Food */}
+          <div className="fb-section">
+            <div className="fb-section__left">
+              <h4 className="fb-section__title">Food</h4>
+            </div>
 
-        {/* Non-Food */}
-        <div className="fb-section fb-section--spaced">
-          <div className="fb-section__left">
-            <h4 className="fb-section__title">Non-Food</h4>
+            <div className="fb-grid">
+              {FOOD_IMAGES.map((src, i) => (
+                <BrandCard
+                  key={src}
+                  src={src}
+                  alt={`Food brand ${i + 1}`}
+                />
+              ))}
+            </div>
           </div>
 
-          <div className="fb-grid fb-grid--nonfood">
-            {NONFOOD_IMAGES.map((src, i) => (
-              <BrandCard key={src} src={src} alt={`Non-food brand ${i + 1}`} />
-            ))}
+          {/* Non Food */}
+          <div className="fb-section fb-section--spaced">
+            <div className="fb-section__left">
+              <h4 className="fb-section__title">Non-Food</h4>
+            </div>
+
+            <div className="fb-grid fb-grid--nonfood">
+              {NONFOOD_IMAGES.map((src, i) => (
+                <BrandCard
+                  key={src}
+                  src={src}
+                  alt={`Non-food brand ${i + 1}`}
+                />
+              ))}
+            </div>
           </div>
         </div>
       </div>

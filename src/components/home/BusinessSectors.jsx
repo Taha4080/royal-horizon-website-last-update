@@ -9,7 +9,7 @@ export default function BusinessSectors() {
         title: "RETAIL",
         subtitle: "Retail Stores",
         desc:
-          " retail operations, branches, supply strength, and customer service excellence.",
+          "We have several outlets and branches located across different regions in the UAE, serving customers with a strong commitment to quality and excellence. As one of the leading companies in the retail sector, we are proud to be among the major partners supporting and accepting the Fazaa Card, providing exclusive benefits and convenient services to Fazaa members throughout our network. Our wide presence and customer-focused approach reflect our dedication to delivering outstanding shopping experiences across the country.",
         image: "/assets/img/hero/related.jpg",
       },
       {
@@ -17,7 +17,7 @@ export default function BusinessSectors() {
         title: "WHOLESALE & CONTRACTS",
         subtitle: "FMCG Distribution",
         desc:
-          "Write your wholesale and contracts description here. Explain your government supply, logistics power, and large-scale FMCG distribution.",
+          "We are a leading FMCG wholesale and distribution company in the UAE, serving government entities, corporate clients, and retail businesses. With a strong logistics network and efficient supply chain, we ensure reliable product availability and timely deliveries across all Emirates. Our experience in large-scale contracts and distribution operations makes us a trusted partner for businesses throughout the UAE.",
           image: "/assets/img/hero/contract.jpg",
       },
       {
@@ -25,7 +25,7 @@ export default function BusinessSectors() {
         title: "E-COMMERCE",
         subtitle: "Online Platform",
         desc:
-          "Write your e-commerce description here. Highlight your digital transformation, delivery systems, and scalable online platform.",
+          "Our e-commerce platform provides a seamless digital shopping experience, supported by advanced technology, secure online transactions, and efficient delivery systems. Through our ongoing digital transformation initiatives, we offer customers convenient access to a wide range of products, fast order processing, and reliable delivery services across the UAE. Our scalable platform is designed to support continuous growth while maintaining high standards of customer satisfaction.",
         image: "/assets/img/hero/Ecom.jpg",
       },
     ],

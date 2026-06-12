@@ -1,26 +1,27 @@
-
 /* =========================
-   Footer (Royal Horizon)
+   Footer (Royal Horizon) - White Theme
 ========================= */
 
 .footer-area {
   position: relative;
-  background: #081228; /* نفس الجو الداكن */
-  color: rgba(255, 255, 255, 0.75);
+  background: #ffffff; /* Changed to White */
+  color: #546e7a; /* Changed to Dark Gray for readability */
   overflow: hidden;
 }
 
-/* Background pattern + glow */
+/* Background pattern + glow (Light Mode Adaptation) */
 .footer-area::before {
   content: "";
   position: absolute;
   inset: 0;
   background:
-    radial-gradient(circle at 20% 30%, rgba(13, 202, 240, 0.10), transparent 55%),
-    radial-gradient(circle at 80% 20%, rgba(47, 11, 146, 0.12), transparent 55%),
-    radial-gradient(circle at 70% 80%, rgba(13, 202, 240, 0.08), transparent 60%),
-    repeating-radial-gradient(circle at 15% 40%, rgba(255,255,255,0.05) 0 1px, transparent 1px 6px);
-  opacity: 0.45;
+    /* Subtle light shadows instead of glowing orbs */
+    radial-gradient(circle at 20% 30%, rgba(0, 0, 0, 0.03), transparent 55%),
+    radial-gradient(circle at 80% 20%, rgba(0, 0, 0, 0.02), transparent 55%),
+    radial-gradient(circle at 70% 80%, rgba(0, 0, 0, 0.02), transparent 60%),
+    /* Subtle dotted pattern */
+    repeating-radial-gradient(circle at 15% 40%, rgba(0,0,0,0.03) 0 1px, transparent 1px 6px);
+  opacity: 0.8;
   pointer-events: none;
   z-index: 0;
 }
@@ -47,21 +48,21 @@
   width: 170px;
   height: auto;
   display: block;
-  filter: brightness(1.05);
+  filter: brightness(0.9); /* Inverted brightness to darken logo on white */
   margin-bottom: 0px;
 }
 
 /* Titles */
-.single-footer-caption .footer-tittle h4{
-  color: #ffffff;
+.single-footer-caption .footer-tittle h4 {
+  color: #102a83; /* Royal Blue for titles instead of pure white */
   font-size: 20px;
   font-weight: 800;
   margin: 0 0 18px;
 }
-.footer-tittle .footer-pera h2{
+.footer-tittle .footer-pera h2 {
     font-size: 600;
     font-weight: 600;
-    color: #ffffff;
+    color: #102a83; /* Match title color */
    margin-top: -20px;
    margin-bottom: 10px;
 
@@ -71,47 +72,52 @@
   margin: 0;
   max-width: 260px;
   line-height: 1.9;
-  color: rgba(255, 255, 255, 0.60);
+  color: #607d8b; /* Softer gray for body text */
+  font-size: 15px;
 }
+
 /* hover */
 .footer-tittle a:hover {
-  color: #ffffff;
+  color: #102a83; /* Royal Blue */
   transform: translateX(2px);
 }
 
-/* email color like screenshot */
+/* email color optimized for white bg */
 .footer-tittle .email{
-  color: #0dcaf0 !important;
+  color: #0d6efd !important; /* Standard accessible link blue */
   font-weight: 700;
+  text-decoration: underline; /* Added underline for visibility */
 }
 
 .footer-tittle .email:hover {
-  color: #7fe9ff;
+  color: #004aad; /* Darker blue on hover */
 }
 
 /* span text (address line) */
 .footer-tittle span {
-  color: rgba(255, 255, 255, 0.60);
+  color: #78909c;
   line-height: 1.1;
   display: inline-block;
   margin-top: -6px;
 }
+
 /* bottom area */
 .footer-bottom-area {
   margin-top: 20px;
   padding: 18px 0 28px;
+  background-color: #f8f9fa; /* Slight off-white for contrast at bottom */
 }
 
 /* divider */
 .footer-border {
-  border-top: 1px solid rgba(255, 255, 255, 0.10);
+  border-top: 1px solid #e0e0e0; /* Light gray border */
   padding-top: 18px;
 }
 
 /* copyright */
 .footer-copy-right p {
   margin: 0;
-  color: rgba(255, 255, 255, 0.35);
+  color: #b0bec5; /* Lighter gray for copyright */
   font-size: 14px;
   letter-spacing: 0.2px;
 }
@@ -126,7 +132,7 @@
   padding: 0;
   display: flex;
   flex-direction: column;
-  gap: 6px; /* ← المسافة بين العناصر */
+  gap: 12px; /* Increased spacing for cleaner look */
 }
 
 .footer-tittle li {
@@ -138,11 +144,15 @@
 .footer-tittle a {
   display: block;
   padding: 3px 0;
-  line-height: 0.1;
-  font-size: 14px;
+  line-height: 0.3;
+  font-size: 15px;
   transition: 0.2s;
+  color: #546e7a; /* Menu links color */
 }
 
+.footer-tittle a:hover {
+  color: #102a83; /* Hover color */
+}
 
 
 /* Responsive */

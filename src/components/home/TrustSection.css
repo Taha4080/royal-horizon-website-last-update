@@ -1,32 +1,35 @@
 /* =========================
-   Trust by Quality Section
+   Trust by Quality Section - White Mode
 ========================= */
 .trust-wrap{
-  /* ✅ عدّل الخلفية من هنا */
-  --bg-img: url("/assets/img//comment/background-image.jpg");
+  /* ✅ Light Mode Background */
+  /* If you have a light image, keep it. If not, remove url or use a white pattern */
+  /* Example white pattern background: */
+  --bg-img: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23f0f2f5' fill-opacity='0.4'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
   
-  --accent: #0dcaf0;
-  --text: #ffffff;
-  --muted: rgba(255,255,255,.78);
-
+  --accent: #102a83; /* Changed to Royal Blue */
+  --text: #102a83;   /* Dark Blue for headings */
+  --muted: #546e7a;  /* Gray for text */
+  
   position: relative;
   padding: 110px 0;
   overflow: hidden;
 
-  background-image: var(--bg-img);
+  /* Adjusted to white */
+  background-color: #ffffff;
+  background-image: var(--bg-img); 
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
   
 }
 
-/* Overlay لتوضيح النص فوق الصورة */
+/* Overlay - Removed dark overlay, kept very subtle white shadow for depth */
 .trust-overlay{
   position: absolute;
   inset: 0;
-  background:
-    radial-gradient(circle at 50% 50%, rgba(0, 0, 0, 0.347), transparent 100%),
-    linear-gradient(60deg, rgba(255, 255, 255, 0.345), rgba(235, 235, 235, 0.367));
+  background: transparent; /* Removed dark overlay */
+  box-shadow: 0 -100px 100px rgba(255, 255, 255, 0.5); /* Subtle depth */
   z-index: 0;
 }
 
@@ -36,14 +39,14 @@
   z-index: 1;
 }
 
-/* شارة صغيرة */
+/* شارة صغيرة - Light Mode */
 .trust-badge{
   display: inline-block;
   padding: 8px 14px;
   border-radius: 999px;
-  border: 1px solid rgba(255,255,255,.22);
-  background: #08132a;
-  color: rgba(255,255,255,.85);
+  border: 1px solid #e0e0e0;
+  background: #f8f9fa;
+  color: #102a83; /* Dark blue text */
   font-weight: 700;
   font-size: 12px;
   letter-spacing: 2px;
@@ -58,18 +61,17 @@
   font-size: clamp(38px, 4.4vw, 55px);
   margin: 0 0 10px;
   letter-spacing: .5px;
-  color: #ffffff;
+  color: #0a2540; /* Darker blue for main headline */
 }
 
 /* العنوان الإنجليزي */
 .trust-en{
-  color: rgba(255,255,255,.85);
+  color: var(--muted);
   letter-spacing: 4px;
   font-weight: 700;
-  font-size: 34px;
-  font-weight: 20px;
+  font-size: 18px; /* Fixed typo (was 34px, 20px) */
   margin: 0 0 22px;
-  color: #ffffff;
+  color: #546e7a;
 }
 
 /* الوصف */
@@ -78,14 +80,11 @@
   margin: 0 auto;
   line-height: 1.9;
   font-size: 20px;
-  font-weight: 200px;
-  color: #ffffff;
-  /* background-color: #0000001d; */
-  border-color: rgba(255,255,255,.28);
-  border-radius: 25px;
+  font-weight: 400;
+  color: #546e7a;
 }
 
-/* الأزرار */
+/* الأزرار - Light Mode */
 .trust-actions{
   margin-top: 26px;
   display: flex;
@@ -100,8 +99,8 @@
   justify-content: center;
   padding: 10px 20px;
   border-radius: 999px;
-  background: var(--accent);
-  color: #081228;
+  background: var(--accent); /* Blue background */
+  color: #ffffff; /* White text */
   font-weight: 900;
   text-decoration: none;
   border: 1px solid var(--accent);
@@ -110,14 +109,14 @@
 
 .trust-btn:hover{
   transform: translateY(-2px);
-  box-shadow: 0 10px 28px rgba(13,202,240,.22);
+  box-shadow: 0 10px 28px rgba(16, 42, 131, 0.25); /* Blue shadow */
 }
 
 .trust-btn--ghost{
   background: transparent;
-  background-color: #08132a;
-  color: #fff;
-  border-color: rgba(255,255,255,.28);
+  background-color: #f1f5f9;
+  color: #102a83;
+  border-color: #cbd5e1;
 }
 
 /* Responsive */
