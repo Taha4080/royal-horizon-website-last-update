@@ -38,8 +38,9 @@ export default function HeroContant() {
       muted
       loop
       playsInline
+      speed="0.6"
       className="rh-hero-bg">
-        <source src="/assets/img/hero/0508.mp4" type="video/mp4" />
+        <source src="/assets/img/hero/0509.MOV" type="video/mp4" />
       </video>
       {/* <div className="rh-video-overlay"></div> */}
       </div>

@@ -47,7 +47,7 @@ export default function Food() {
       {/* FRAME مثل StatsBar */}
       <div className="fb-frame">
         <img
-          src="/assets/img/hero/stats-bg.png"
+          src="/assets/img/hero/slide8لهف.png"
           alt="brands background"
           className="fb-bg-img"
         />

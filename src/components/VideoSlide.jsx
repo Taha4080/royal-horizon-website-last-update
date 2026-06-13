@@ -31,7 +31,7 @@ export default function VideoSlide() {
       className={`video-slide ${visible ? "show-content" : ""}`}
     >
       <video
-        src="./assets/img/hero/0507.mp4"
+        src="./assets/img/hero/0508.mp4"
         muted
         autoPlay
         loop
